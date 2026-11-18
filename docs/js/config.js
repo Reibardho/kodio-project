@@ -6,7 +6,7 @@ window.KODIO_CONFIG = {
   email: "kodiowebstudio@gmail.com",
   // Rrjetet sociale (ikonat në footer). Lëre "" nëse ende nuk ke profil: ikona të çon te Kontakti.
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/kodiowebstudio/",
     tiktok: "https://www.tiktok.com/@kodiowebstudio",
     linkedin: "https://www.linkedin.com/in/rei-bardho-7431a82ab/",
   },
