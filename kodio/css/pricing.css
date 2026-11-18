@@ -1,0 +1,296 @@
+/* Çmimet — skeda sipër, paketat si karta të gjata me detaje (js/modules/pricing.js) */
+
+.pc {
+  max-width: 1120px;
+  margin: 40px auto 0;
+}
+.ptabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 36px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.ptabs button {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.ptabs button:hover {
+  color: var(--text);
+}
+.ptabs button.on {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Rrjeti: 3 karta për rresht, rreshti i fundit në qendër */
+.pgrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.pk {
+  position: relative;
+  flex: 0 1 calc((100% - 40px) / 3);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 30px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--bg);
+  animation: pkin 0.5s calc(var(--i) * 0.07s) both cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.pk:hover {
+  transform: translateY(-6px);
+  border-color: var(--text);
+  box-shadow: 0 26px 50px -24px rgba(0, 0, 0, 0.35);
+}
+@keyframes pkin {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.pk-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.pk-ix {
+  letter-spacing: 0.1em;
+}
+.pk-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
+.pk-time::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+.pk h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.pk-d {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 3.2em;
+}
+.pk-p {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 22px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+}
+.pk-p b {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(30px, 3.4vw, 40px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.pk-p small {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: var(--muted);
+}
+.pc .pk .pk-cta {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.pk-in {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.pk ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.pk li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.pk li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d7202b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")
+      center / 12px no-repeat,
+    rgba(215, 32, 43, 0.1);
+}
+
+/* Paketa e rekomanduar: e kundërt (e zezë në temën e çelët) */
+.pk.hot {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.55);
+}
+.pk.hot .pk-top,
+.pk.hot .pk-d,
+.pk.hot .pk-p small,
+.pk.hot .pk-in {
+  color: color-mix(in srgb, var(--bg) 65%, transparent);
+}
+.pk.hot .pk-time,
+.pk.hot .pk-p {
+  border-color: color-mix(in srgb, var(--bg) 22%, transparent);
+}
+.pk.hot li::before {
+  background-color: rgba(215, 32, 43, 0.28);
+}
+.pk.hot .btn {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--bg);
+}
+.pk.hot .btn::after {
+  background:
+    var(--chip-arrow-inv) center / 17px no-repeat,
+    var(--text);
+}
+.pk-tag {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: #d7202b;
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px -6px rgba(215, 32, 43, 0.6);
+}
+
+/* Shtesat dhe kushtet: karta të vogla */
+.pgrid.sm .prow {
+  flex: 0 1 calc((100% - 60px) / 4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 140px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--bg);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: var(--muted);
+  animation: pkin 0.45s calc(var(--i) * 0.06s) both;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+.pgrid.sm .prow:hover {
+  transform: translateY(-4px);
+  border-color: var(--text);
+}
+.prow b {
+  color: var(--text);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.25;
+}
+.pfoot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.plk {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+@media (max-width: 960px) {
+  .pk {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+  .pgrid.sm .prow {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .ptabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 22px;
+  }
+  .ptabs button {
+    padding: 11px 8px;
+    font-size: 13px;
+    white-space: normal;
+  }
+  .pk,
+  .pgrid.sm .prow {
+    flex-basis: 100%;
+  }
+  .pk {
+    padding: 26px 22px;
+  }
+  .pk-d {
+    min-height: 0;
+  }
+}

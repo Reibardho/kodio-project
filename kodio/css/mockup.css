@@ -1,0 +1,202 @@
+/* Dritarja e shfletuesit me kartat që pluskojnë (hero).
+   Ngjyrat ndjekin temën e faqes (bardhë/zi + e kuqja e markës).
+   Anohet në 3D dhe kartat lëvizin me thellësi të ndryshme sipas maus-it (js/modules/mockup.js → --mx, --my). */
+
+.mk {
+  position: relative;
+  max-width: 540px;
+  width: 100%;
+  margin: 6px auto 0;
+  padding: 30px 26px 46px;
+  text-align: left;
+  perspective: 1100px;
+}
+.mk::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.4) 1px, transparent 1.4px) 0 0/15px 15px;
+  -webkit-mask: radial-gradient(ellipse 60% 55% at 50% 50%, #000, transparent 78%);
+  mask: radial-gradient(ellipse 60% 55% at 50% 50%, #000, transparent 78%);
+  transform: translate(calc(var(--mx) * -10px), calc(var(--my) * -10px));
+  pointer-events: none;
+}
+.win {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow:
+    calc(var(--mx) * -26px) calc(34px + var(--my) * -18px) 70px -18px rgba(0, 0, 0, 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  color: var(--text);
+  transform: rotateX(calc(var(--my) * -7deg)) rotateY(calc(var(--mx) * 9deg));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+:root[data-theme="dark"] .win {
+  background: #111;
+  box-shadow:
+    calc(var(--mx) * -26px) calc(34px + var(--my) * -18px) 80px -18px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.wbar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.wbar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  flex: none;
+}
+.wbar i:first-child {
+  background: #d7202b;
+}
+.url {
+  margin-left: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 5px 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  min-height: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.url svg {
+  flex: none;
+}
+/* Ekranet e vërteta të projektit (Rei Mobile Store): ndërrohen çdo ~7s dhe "scroll-ohen" vetë.
+   Për të shtuar një projekt: vendos foton te assets/images/projects/ dhe një <img data-url="..."> te #wshots. */
+.wshots {
+  position: relative;
+  aspect-ratio: 16 / 10.4;
+  overflow: hidden;
+  background: var(--surface);
+}
+.wshots img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.wshots img.on {
+  opacity: 1;
+}
+.wshots img.on,
+.wshots img.out {
+  animation: wscroll 6.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0.5s forwards;
+}
+@keyframes wscroll {
+  to {
+    object-position: 50% 100%;
+  }
+}
+.fc {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 1.3em;
+  padding: 0.7em 1.2em 0.7em 0.7em;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.28);
+  font-size: 13px;
+  animation: fcf 5s ease-in-out infinite alternate;
+  z-index: 2;
+  white-space: nowrap;
+  color: var(--text);
+  will-change: transform;
+}
+.fc .ic {
+  width: 3.1em;
+  height: 3.1em;
+  border-radius: 1em;
+  background: rgba(215, 32, 43, 0.08);
+  display: grid;
+  place-content: center;
+}
+.fc .ic svg {
+  width: 1.6em;
+  height: 1.6em;
+  stroke: #d7202b;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fc b {
+  display: block;
+  font-size: 1.08em;
+}
+.fc small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.86em;
+}
+/* Thellësia e secilës kartë: sa më e madhe, aq më shumë lëviz me maus-in */
+.c1 {
+  right: -12px;
+  top: -6px;
+  transform: translate3d(calc(var(--mx) * 30px), calc(var(--my) * 22px), 0);
+}
+.c2 {
+  left: -18px;
+  bottom: 54px;
+  animation-duration: 6s;
+  animation-delay: -2s;
+  transform: translate3d(calc(var(--mx) * -22px), calc(var(--my) * -16px), 0);
+}
+.c3 {
+  right: -8px;
+  bottom: 2px;
+  animation-duration: 5.5s;
+  animation-delay: -1s;
+  transform: translate3d(calc(var(--mx) * 40px), calc(var(--my) * 28px), 0);
+}
+@media (max-width: 600px) {
+  .fc {
+    font-size: 10.5px;
+  }
+  .mk {
+    padding: 24px 10px 40px;
+  }
+  .c1 {
+    right: 0;
+    top: -8px;
+  }
+  .c2 {
+    left: 0;
+    bottom: 42px;
+  }
+  .c3 {
+    right: 0;
+    bottom: 0;
+  }
+}
+@keyframes fcf {
+  to {
+    translate: 0 -9px;
+  }
+}

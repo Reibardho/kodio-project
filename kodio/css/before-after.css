@@ -1,0 +1,658 @@
+/* Para / pas: majtas website-i i vjetër (stil 2010) që një rul boje e rilyen në dizajnin e ri,
+   djathtas mockup-i i ri (css/mockup.css). Të dyja anohen pas maus-it (--mx, --my nga js/modules/mockup.js).
+   Animacioni është vetëm CSS: 9 sekonda, përsëritet. */
+
+.ba {
+  --mx: 0;
+  --my: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 1160px;
+  margin: 10px auto 0;
+}
+.ba .mk {
+  margin: 0;
+  justify-self: start;
+}
+.old {
+  position: relative;
+  max-width: 540px;
+  width: 100%;
+  justify-self: end;
+  padding: 30px 26px 46px;
+  perspective: 1100px;
+  text-align: left;
+}
+
+/* Etiketat sipër dritareve */
+.ba-l {
+  position: absolute;
+  left: 26px;
+  top: -16px;
+  z-index: 3;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--bg);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.25);
+}
+.ba-l > i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d7202b;
+  animation: bdot 9s infinite;
+}
+.ba-l .bl {
+  grid-area: 1 / 2;
+}
+.bl1,
+.bl3 {
+  opacity: 0;
+}
+.bl1 {
+  animation: bl1 9s infinite;
+}
+.bl2 {
+  animation: bl2 9s infinite;
+}
+.bl3 {
+  animation: bl3 9s infinite;
+}
+.ba-new {
+  color: var(--text);
+}
+.ba-new > i {
+  background: #22c55e;
+  animation: none;
+}
+
+/* Shigjeta në mes */
+.ba-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background:
+    var(--chip-arrow-inv) center / 18px no-repeat,
+    var(--text);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.45);
+  animation: barr 2.4s ease-in-out infinite;
+}
+@keyframes barr {
+  50% {
+    translate: 5px 0;
+  }
+}
+
+/* ---------- Dritarja e vjetër ---------- */
+.owrap {
+  position: relative;
+  transform: rotateX(calc(var(--my) * -7deg)) rotateY(calc(var(--mx) * 9deg));
+  will-change: transform;
+}
+.ow {
+  position: relative;
+  aspect-ratio: 1.49;
+  overflow: hidden;
+  border: 1px solid #0831d9;
+  border-radius: 8px 8px 2px 2px;
+  background: #ece9d8;
+  box-shadow:
+    calc(var(--mx) * -26px) calc(34px + var(--my) * -18px) 70px -18px rgba(0, 0, 0, 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: Tahoma, Verdana, sans-serif;
+  color: #000;
+  animation: bframe 9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+/* Korniza blu e Windows-it bëhet kornizë moderne kur mbaron lyerja */
+@keyframes bframe {
+  0%,
+  40%,
+  100% {
+    border-color: #0831d9;
+    border-radius: 8px 8px 2px 2px;
+  }
+  52%,
+  90% {
+    border-color: var(--line);
+    border-radius: 18px;
+  }
+}
+.obar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  padding: 0 4px 0 8px;
+  background: linear-gradient(#3d8bf6, #0a5bdc 45%, #0848c4);
+  color: #fff;
+  font-size: 10.5px;
+  text-shadow: 1px 1px 0 #0a246a;
+}
+.obar span {
+  display: flex;
+  gap: 2px;
+}
+.obar i {
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-content: center;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background: linear-gradient(#5d9df8, #2c6fe0);
+  font-style: normal;
+  font-size: 10px;
+  line-height: 1;
+}
+.obar i:last-child {
+  background: linear-gradient(#e8836b, #c8381c);
+}
+.oaddr {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+  border-bottom: 1px solid #aca899;
+  font-size: 9.5px;
+  color: #444;
+}
+.oaddr em {
+  flex: 1;
+  font-style: normal;
+  padding: 1px 4px;
+  border: 1px solid #7f9db9;
+  background: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.oaddr u {
+  text-decoration: none;
+  padding: 0 6px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  background: linear-gradient(#fff, #d6d3c6);
+}
+/* Faqja e vjetër e Rei Mobile (stil 2010), me ngjyrat e markës: e kuqe #c8102e, e zezë, e verdhë */
+.obody {
+  height: calc(100% - 46px);
+  padding: 6px 8px;
+  background: #fff5f6
+    repeating-linear-gradient(45deg, transparent 0 9px, rgba(200, 16, 46, 0.05) 9px 10px);
+  font-family: "Times New Roman", Times, serif;
+  overflow: hidden;
+}
+.ohead {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 6px 5px;
+  border: 2px outset #e05a6e;
+  background: linear-gradient(#e2213f, #c8102e 55%, #7a0a1c);
+}
+.ohead b {
+  font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 1px;
+  background: linear-gradient(#fffbe0, #ffd400 60%, #ff9f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 2px 0 #3a0008);
+}
+.ohead small {
+  font-style: italic;
+  font-size: 10px;
+  color: #ffe9ec;
+}
+.onew-badge {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  padding: 0 4px;
+  background: #ff0;
+  color: #c8102e;
+  font-family: Arial, sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  animation: oblink 0.9s steps(1) infinite;
+}
+@keyframes oblink {
+  50% {
+    opacity: 0;
+  }
+}
+.onav {
+  text-align: center;
+  font-size: 11px;
+  margin: 3px 0 4px;
+  color: #000;
+}
+.onav a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+.omarq {
+  overflow: hidden;
+  background: #000;
+  color: #ffd400;
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 1px 0;
+  border-block: 1px solid #c8102e;
+}
+.omarq span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: omq 10s linear infinite;
+}
+@keyframes omq {
+  to {
+    transform: translateX(-100%);
+  }
+}
+.ogrid {
+  display: grid;
+  grid-template-columns: 27% 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+.omenu {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+  padding: 4px 5px;
+  border: 2px outset #ddd;
+  background: #d4d0c8;
+  font-size: 10px;
+}
+.omenu b {
+  font-size: 10.5px;
+  color: #fff;
+  background: #c8102e;
+  padding: 0 3px;
+  margin: -1px -2px 3px;
+}
+.omenu a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+.oprod {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #999;
+  background: #fff;
+}
+.ocell {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  padding: 5px 2px 6px;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  font-size: 9.5px;
+}
+.ocell:last-child {
+  border-right: 0;
+}
+.ocell b {
+  color: #000080;
+  text-decoration: underline;
+}
+.ocell em {
+  font-style: normal;
+  font-weight: 700;
+  color: #c8102e;
+}
+.ocell u {
+  text-decoration: none;
+  padding: 0 7px;
+  margin-top: 2px;
+  border: 2px outset #eee;
+  background: #d4d0c8;
+  font-family: Tahoma, sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+}
+/* Telefona të vjetër të vizatuar me CSS */
+.ophone {
+  position: relative;
+  width: 18px;
+  height: 36px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #555, #9a9a9a 45%, #444);
+  box-shadow: 1px 1px 0 #222;
+}
+.ophone::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 4px;
+  height: 11px;
+  background: #9bd18b;
+  border: 1px solid #333;
+}
+.ophone::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  height: 13px;
+  background: radial-gradient(circle, #ddd 0.9px, transparent 1.3px) 0 0 / 3.4px 3.4px;
+}
+.ophone.s {
+  background: linear-gradient(90deg, #7a0a1c, #c8102e 45%, #5a0714);
+}
+.ophone.f {
+  height: 30px;
+  margin-top: 6px;
+  background: linear-gradient(90deg, #26365e, #4b6cb7 45%, #1c2848);
+  border-radius: 8px 8px 4px 4px;
+}
+.ostar {
+  position: absolute;
+  right: -8px;
+  top: -12px;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-content: center;
+  background: #ffd400;
+  color: #c8102e;
+  font-family: Arial, sans-serif;
+  font-size: 7.5px;
+  font-weight: 900;
+  clip-path: polygon(
+    50% 0,
+    61% 23%,
+    86% 14%,
+    77% 39%,
+    100% 50%,
+    77% 61%,
+    86% 86%,
+    61% 77%,
+    50% 100%,
+    39% 77%,
+    14% 86%,
+    23% 61%,
+    0 50%,
+    23% 39%,
+    14% 14%,
+    39% 23%
+  );
+  rotate: 12deg;
+  animation: ostar 2s ease-in-out infinite;
+}
+@keyframes ostar {
+  50% {
+    scale: 1.12;
+  }
+}
+.ofoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 8.5px;
+  color: #666;
+}
+.ocount {
+  padding: 1px 4px;
+  background: #000;
+  color: #0f0;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---------- Shtresa e re (zbulohet nga ruli) — përdor klasat e mockup-it ---------- */
+.onew {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  clip-path: inset(0 0 50% 0);
+  animation: bpaint 9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+:root[data-theme="dark"] .onew {
+  background: #111;
+}
+.oshot {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+/* ---------- Ruli i bojës ---------- */
+.roll {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 50%;
+  height: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: broll 9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+.rcyl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 24px;
+  border-radius: 12px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 6px),
+    linear-gradient(#ff6b72, #d7202b 45%, #9e1119);
+  box-shadow:
+    0 10px 18px -6px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  animation: bspin 0.5s linear infinite;
+}
+.rcyl::before,
+.rcyl::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: 8px;
+  border-radius: 6px;
+  background: #7a0d14;
+}
+.rcyl::before {
+  left: 2px;
+}
+.rcyl::after {
+  right: 2px;
+}
+@keyframes bspin {
+  to {
+    background-position:
+      6px 0,
+      0 0;
+  }
+}
+.rpaint {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  bottom: 8px;
+  height: 30px;
+  background: linear-gradient(to top, rgba(215, 32, 43, 0.5), rgba(215, 32, 43, 0));
+  filter: blur(2px);
+}
+.rhandle {
+  position: absolute;
+  right: -6px;
+  bottom: 6px;
+  width: 54px;
+  height: 72px;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* ---------- Koha: 0–6% i vjetër, 6–50% lyhet, 56–90% i ri, 90–100% kthehet ---------- */
+@keyframes broll {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  6% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 100%;
+    opacity: 1;
+  }
+  56%,
+  100% {
+    top: 108%;
+    opacity: 0;
+  }
+}
+@keyframes bpaint {
+  0%,
+  6% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 1;
+  }
+  50%,
+  90% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  96% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+}
+@keyframes bl1 {
+  0%,
+  6%,
+  100% {
+    opacity: 1;
+  }
+  10%,
+  94% {
+    opacity: 0;
+  }
+}
+@keyframes bl2 {
+  0%,
+  6%,
+  54%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  48% {
+    opacity: 1;
+  }
+}
+@keyframes bl3 {
+  0%,
+  50%,
+  96%,
+  100% {
+    opacity: 0;
+  }
+  56%,
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes bdot {
+  0%,
+  6%,
+  100% {
+    background: #9ca3af;
+  }
+  10%,
+  48% {
+    background: #d7202b;
+  }
+  56%,
+  90% {
+    background: #22c55e;
+  }
+}
+
+@media (max-width: 1000px) {
+  .ba {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 0;
+  }
+  .ba .mk,
+  .old {
+    justify-self: center;
+  }
+  .ba-arrow {
+    rotate: 90deg;
+  }
+}
+@media (max-width: 600px) {
+  .old {
+    padding: 24px 10px 34px;
+  }
+  .ba-l {
+    left: 10px;
+    top: -14px;
+    font-size: 10px;
+  }
+  .ohead b {
+    font-size: 16px;
+  }
+  .ohead small,
+  .onew-badge {
+    display: none;
+  }
+  .ocell {
+    font-size: 8.5px;
+  }
+  .obody {
+    padding: 6px 8px;
+  }
+  .omenu,
+  .onav {
+    font-size: 9px;
+  }
+  .ofoot small {
+    display: none;
+  }
+  .ba .mk .c1 {
+    top: 20px;
+  }
+}

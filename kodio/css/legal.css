@@ -1,0 +1,119 @@
+/* Faqja e politikës së privatësisë (privacy.html) */
+
+body.legal {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.7;
+}
+.lh {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.lh .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.lback {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.lback:hover {
+  text-decoration: underline;
+}
+.lctl {
+  display: flex;
+  gap: 8px;
+}
+.lctl button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 7px 12px;
+  font:
+    700 12px "JetBrains Mono",
+    monospace;
+  cursor: pointer;
+}
+.lctl button.on {
+  border-color: var(--text);
+}
+.lmain {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+.lmain h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 6vw, 54px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+.lmeta {
+  font:
+    500 12px "JetBrains Mono",
+    monospace;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.lmain h2 {
+  font-size: 20px;
+  margin: 38px 0 8px;
+}
+.lmain p,
+.lmain li {
+  color: var(--muted);
+  font-size: 15px;
+}
+.lmain ul {
+  padding-left: 20px;
+}
+.lmain a {
+  color: var(--text);
+  text-decoration: underline;
+}
+.ltab {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 12px 0;
+}
+.ltab th,
+.ltab td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--muted);
+}
+.ltab th {
+  background: var(--surface);
+  color: var(--text);
+}
+.lbtn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 11px 20px;
+  border-radius: 99px;
+  background: var(--text);
+  color: var(--bg) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 14px;
+}
+[hidden] {
+  display: none !important;
+}

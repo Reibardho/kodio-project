@@ -1,0 +1,57 @@
+/* Globi dhe seksioni "Punoj me klientë kudo" */
+
+.world {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+  border-top: 1px solid var(--line);
+}
+.world .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+.world .eyb {
+  justify-content: flex-start;
+}
+.world .eyb::after {
+  display: none;
+}
+.world h2.serif {
+  text-align: left;
+  font-size: clamp(32px, 4.6vw, 54px);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+.gbox {
+  position: relative;
+  height: 480px;
+}
+#gl {
+  position: absolute;
+  top: 50%;
+  right: -24%;
+  width: 580px;
+  height: 580px;
+  max-width: none;
+  transform: translateY(-50%);
+}
+@media (max-width: 860px) {
+  .world .wrap {
+    grid-template-columns: 1fr;
+  }
+  .gbox {
+    height: 300px;
+  }
+  #gl {
+    width: 430px;
+    height: 430px;
+    right: -20%;
+  }
+}
+@media (max-width: 600px) {
+  .gbox {
+    height: 260px;
+  }
+}

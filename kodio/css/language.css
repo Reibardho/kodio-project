@@ -1,0 +1,172 @@
+/* Ndërruesi i gjuhës në header (butoni 🌐 AL ▾ dhe lista). Lista ndërtohet nga js/core/i18n.js. */
+
+.lgw {
+  position: relative;
+}
+.lgb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 44px;
+  padding: 0 13px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font:
+    700 12px "JetBrains Mono",
+    monospace;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.lgb:hover,
+.lgb[aria-expanded="true"] {
+  border-color: var(--text);
+}
+.lgb svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+.lgv {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 1px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s;
+}
+.lgb[aria-expanded="true"] .lgv {
+  transform: translateY(3px) rotate(-135deg);
+}
+.lgm {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 120;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 300px;
+  max-height: min(70vh, 440px);
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--bg);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.35);
+  animation: lgin 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lgm[hidden] {
+  display: none;
+}
+@keyframes lgin {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+.lg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text);
+  font:
+    500 14px Inter,
+    system-ui,
+    sans-serif;
+  text-align: start;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lg b {
+  min-width: 26px;
+  font:
+    700 11px "JetBrains Mono",
+    monospace;
+  color: var(--muted);
+}
+.lg:hover {
+  background: var(--surface);
+}
+.lg.on {
+  background: var(--text);
+  color: var(--bg);
+}
+.lg.on b {
+  color: inherit;
+}
+@media (max-width: 520px) {
+  .lgb {
+    height: 40px;
+    padding: 0 10px;
+    gap: 5px;
+  }
+  .lgb svg {
+    width: 15px;
+    height: 15px;
+  }
+  .lgm {
+    position: fixed;
+    top: 72px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+}
+
+/* Gjuhët që shkruhen nga e djathta (arabisht): teksti djathtas, por pamjet vizuale mbeten si janë */
+[dir="rtl"] body {
+  text-align: right;
+}
+/* Arabishtja, hindishtja dhe kinezishtja nuk duan hapësira mes shkronjave (germat ndahen ose prishen) */
+:is(:lang(ar), :lang(hi), :lang(zh)) body * {
+  letter-spacing: normal !important;
+}
+/* Butoni i WhatsApp mbetet poshtë djathtas edhe në arabisht */
+.waf {
+  direction: ltr;
+}
+/* Çmimet, numrat e telefonit dhe email-i lexohen gjithmonë nga e majta (€500+, +355 …) */
+[dir="rtl"]
+  :is(
+    .pk-p b,
+    .prow b,
+    #rc b,
+    #rc span,
+    #etype b,
+    #eext b,
+    .bc b,
+    .fg a[href^="mailto"],
+    .fg a[data-wa]
+  ) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+/* Shkrimet që shkronjat tona (Inter, JetBrains Mono, Playfair) nuk i kanë: përdor shkronjat e sistemit,
+   që germat të lidhen saktë (arabisht) dhe të lexohen mirë (hindi, kinezisht). Logoja "kodio" mbetet. */
+:lang(ar) body *:not(.logo, .logo *) {
+  font-family:
+    "Segoe UI", "Noto Sans Arabic", "Geeza Pro", Tahoma, system-ui, sans-serif !important;
+}
+:lang(hi) body *:not(.logo, .logo *) {
+  font-family:
+    "Nirmala UI", "Noto Sans Devanagari", "Kohinoor Devanagari", system-ui, sans-serif !important;
+}
+:lang(zh) body *:not(.logo, .logo *) {
+  font-family:
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, sans-serif !important;
+}
+.logo .ls {
+  font-family: "JetBrains Mono", monospace !important;
+}

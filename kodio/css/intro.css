@@ -1,0 +1,111 @@
+/* Ekrani i hapjes me logon */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg);
+  display: grid;
+  place-content: center;
+  animation: iout 0.4s ease 1.15s forwards;
+  cursor: pointer;
+}
+.ib {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.im svg {
+  width: 84px;
+  height: 84px;
+  display: block;
+  border-radius: 22px;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.2),
+    0 0 0 1px var(--line);
+  animation: ipop 0.5s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+.im path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: idraw 0.45s 0.2s ease forwards;
+}
+.im circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: idot 0.35s 0.6s ease both;
+}
+.it {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 46px;
+  line-height: 0.9;
+  font-weight: 500;
+  text-align: center;
+  animation: iup 0.5s 0.3s ease both;
+}
+.it small {
+  display: block;
+  margin-top: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--muted);
+}
+.ibar {
+  width: 150px;
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ibar i {
+  display: block;
+  height: 100%;
+  background: #d7202b;
+  transform-origin: left;
+  animation: ibar 1s 0.1s cubic-bezier(0.5, 0, 0.2, 1) both;
+}
+/* Vizita e dytë në të njëjtën seancë: pa intro */
+.no-intro #intro {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro {
+    display: none;
+  }
+}
+@keyframes iout {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-14px);
+  }
+}
+@keyframes ipop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+}
+@keyframes idraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes idot {
+  from {
+    transform: scale(0);
+  }
+}
+@keyframes iup {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes ibar {
+  from {
+    transform: scaleX(0);
+  }
+}

@@ -1,0 +1,136 @@
+/* Vlerësuesi i kostos dhe fatura */
+
+.est {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 44px;
+  max-width: 900px;
+  margin: 38px auto 0;
+  align-items: start;
+}
+.estc .eq {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  margin: 24px 0 10px;
+}
+.estc .eq:first-child {
+  margin-top: 0;
+}
+.eq b {
+  float: right;
+}
+.eopts,
+.eext {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.eo,
+.ex {
+  font-family: "JetBrains Mono", monospace;
+  text-align: left;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12.5px;
+}
+.eo small,
+.ex small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.eo.on,
+.ex.on {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.eo.on small,
+.ex.on small {
+  color: inherit;
+  opacity: 0.7;
+}
+#epg {
+  width: 100%;
+  accent-color: var(--text);
+}
+#epg:disabled {
+  opacity: 0.3;
+}
+.rcw {
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.18));
+  transform: rotate(1.6deg);
+}
+.rc {
+  --paper: #efefef;
+  position: relative;
+  background: linear-gradient(#fff, var(--paper));
+  padding: 24px 22px 26px;
+  color: #111;
+  font-family: "JetBrains Mono", monospace;
+}
+.rc::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 10px;
+  background:
+    linear-gradient(135deg, var(--paper) 5px, transparent 0) 0 0/14px 10px,
+    linear-gradient(-135deg, var(--paper) 5px, transparent 0) 0 0/14px 10px;
+}
+.rh {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  margin-bottom: 14px;
+}
+.rl,
+.rt {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 12.5px;
+  padding: 5px 0;
+}
+.rl i,
+.rt i {
+  flex: 1;
+  border-bottom: 1px dotted #999;
+  transform: translateY(-4px);
+}
+.rt {
+  font-weight: 800;
+  font-size: 15px;
+  border-top: 3px double #111;
+  margin-top: 10px;
+  padding-top: 12px;
+}
+.rd {
+  font-size: 12px;
+  margin: 12px 0 6px;
+}
+.rn {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+.rc .btn {
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .est {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .eext {
+    grid-template-columns: 1fr;
+  }
+}

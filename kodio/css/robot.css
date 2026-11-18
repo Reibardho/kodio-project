@@ -1,0 +1,215 @@
+/* Roboti në hero: lëvizja, zemrat, butonat e shërbimeve */
+
+.bd {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px;
+  transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)));
+}
+.bd span {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px var(--glow);
+  animation: spin 32s linear infinite reverse;
+}
+#fbot {
+  position: relative;
+  width: clamp(120px, 15vw, 156px);
+  align-self: flex-start;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  will-change: transform;
+}
+#fbot .fi {
+  position: relative;
+  aspect-ratio: 145/190;
+  animation: fbob 3.2s ease-in-out infinite alternate;
+  transition: transform 0.35s;
+}
+#fbot .fi.flip {
+  transform: scaleX(-1);
+}
+#fbot img {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+}
+#fbot .bd {
+  position: absolute;
+  left: 0;
+  top: 32.63%;
+  width: 100%;
+  height: 67.37%;
+}
+#fbot .hd {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 38.42%;
+  transform-origin: 50% 96%;
+  animation: hnod 7s ease-in-out infinite;
+}
+#fbot .hd > img {
+  width: 100%;
+  height: 100%;
+}
+#fbot.mv .hd,
+#fbot.love .hd {
+  animation: hlook 3s ease-in-out infinite alternate;
+}
+.fsh {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -4px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.26);
+  filter: blur(4px);
+}
+#fbot .he {
+  position: absolute;
+  width: 17%;
+  translate: -50% -50%;
+  display: none;
+}
+#fbot.love .he {
+  display: block;
+  animation: hb 0.5s ease-in-out infinite alternate;
+}
+.svc2 {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+.svc2.r {
+  left: calc(100% + 14px);
+}
+.svc2.l {
+  right: calc(100% + 14px);
+  align-items: flex-end;
+}
+.svc2 a {
+  white-space: nowrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 99px;
+  padding: 8px 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  animation: pop2 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+.svc2 a:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+.fh {
+  position: absolute;
+  left: 46%;
+  top: 8%;
+  font-size: 18px;
+  pointer-events: none;
+  animation: fh 1.8s ease-out forwards;
+}
+@media (max-width: 600px) {
+  .svc2 {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min(92vw, 320px);
+    margin-top: 8px;
+  }
+  .svc2.r,
+  .svc2.l {
+    left: 50%;
+    right: auto;
+  }
+  .svc2 a {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+}
+.svc2 a.wa {
+  background: #25d366;
+  border-color: #25d366;
+  color: #fff;
+}
+.svc2 a.wa:hover {
+  background: #1ebe5a;
+  color: #fff;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hb {
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes fbob {
+  to {
+    translate: 0 -7px;
+  }
+}
+@keyframes hnod {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  70%,
+  88% {
+    transform: translateY(-5%) rotate(-7deg);
+  }
+}
+@keyframes hlook {
+  from {
+    transform: translateY(0) rotate(2deg);
+  }
+  to {
+    transform: translateY(-6%) rotate(-9deg);
+  }
+}
+@keyframes pop2 {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes fh {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--hx), -120px) scale(1.25);
+  }
+}

@@ -1,0 +1,108 @@
+/* Butoni lundrues i WhatsApp poshtë djathtas. Linku vendoset nga js/core/whatsapp.js ([data-wa]). */
+
+.waf {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  animation: wafin 0.6s 1.8s both cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.waf-i {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  background: #25d366;
+  box-shadow:
+    0 12px 28px -8px rgba(37, 211, 102, 0.65),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.waf-i svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+/* Unaza që pulson */
+.waf-i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: wafping 2.4s ease-out infinite;
+}
+.waf-t {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  font:
+    600 13.5px/1 Inter,
+    system-ui,
+    sans-serif;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.waf:hover .waf-i {
+  transform: scale(1.08);
+}
+.waf:hover .waf-t,
+.waf:focus-visible .waf-t {
+  opacity: 1;
+  transform: none;
+}
+@keyframes wafping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@keyframes wafin {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+}
+/* Kur banneri i cookies është hapur, butoni fshihet që të mos e mbulojë */
+.ck:not([hidden]) ~ .waf {
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .waf {
+    right: 16px;
+    bottom: 16px;
+  }
+  .waf-i {
+    width: 54px;
+    height: 54px;
+  }
+  .waf-t {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .waf,
+  .waf-i::before {
+    animation: none;
+  }
+}

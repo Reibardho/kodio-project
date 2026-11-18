@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Faqja nuk u gjet – Kodio Web Studio</title>
+    <meta name="robots" content="noindex" />
+    <!-- Stilet janë brenda skedarit, që faqja të duket mirë nga çdo adresë e gabuar (p.sh. /a/b/c). -->
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #0a0a0a;
+        --muted: #6b6b6b;
+        --line: #e7e7e7;
+        --red: #d7202b;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a0a0a;
+          --text: #f5f5f5;
+          --muted: #a3a3a3;
+          --line: #262626;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          400 16px/1.6 Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        text-align: center;
+      }
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font:
+          400 26px Georgia,
+          serif;
+        color: var(--text);
+        text-decoration: none;
+        margin-bottom: 40px;
+      }
+      .code {
+        font:
+          800 clamp(96px, 22vw, 180px) / 0.9 ui-monospace,
+          "JetBrains Mono",
+          monospace;
+        letter-spacing: -0.06em;
+        margin: 0 auto;
+        color: var(--text);
+      }
+      .code span {
+        color: var(--red);
+      }
+      h1 {
+        font:
+          400 clamp(24px, 4vw, 34px) / 1.2 Georgia,
+          serif;
+        margin: 18px 0 10px;
+      }
+      p {
+        color: var(--muted);
+        max-width: 420px;
+        margin: 0 auto 30px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        min-height: 50px;
+        padding: 0 24px;
+        border-radius: 999px;
+        border: 1px solid var(--text);
+        background: var(--text);
+        color: var(--bg);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="logo" href="/">
+        <svg width="34" height="34" viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="13" fill="#111" />
+          <path
+            d="M19 16l-8 8 8 8M29 16l8 8-8 8"
+            fill="none"
+            stroke="#fff"
+            stroke-width="3.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="24" cy="24" r="3" fill="#d7202b" />
+        </svg>
+        kodio
+      </a>
+      <p class="code">4<span>0</span>4</p>
+      <h1 data-l="sq">Kjo faqe nuk ekziston</h1>
+      <p data-l="sq">
+        Linku mund të jetë i gabuar ose faqja është zhvendosur. Kthehu te kryefaqja ose na shkruaj
+        direkt.
+      </p>
+      <h1 data-l="en" hidden>This page doesn't exist</h1>
+      <p data-l="en" hidden>
+        The link may be wrong or the page has moved. Go back home or message us directly.
+      </p>
+      <div class="row">
+        <a class="btn" href="/"
+          ><span data-l="sq">Kryefaqja</span><span data-l="en" hidden>Home</span></a
+        >
+        <a class="btn ghost" href="https://wa.me/355698277335" target="_blank" rel="noopener"
+          >WhatsApp</a
+        >
+      </div>
+    </main>
+    <script>
+      // Anglisht për vizitorët që nuk e kanë shfletuesin në shqip
+      if (!/^sq/i.test(navigator.language || "sq"))
+        document.querySelectorAll("[data-l]").forEach(function (e) {
+          e.hidden = e.dataset.l !== "en";
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+/* Banner i cookies, cilësimet dhe lidhjet e footer-it */
+
+.ck {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 150;
+  width: min(400px, calc(100vw - 36px));
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  animation: ckin 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.ck[hidden],
+.ckm[hidden] {
+  display: none;
+}
+@keyframes ckin {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.ck h4,
+.ckm h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.ck p,
+.ckm p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.ck p a,
+.ck-pl {
+  color: var(--text);
+  text-decoration: underline;
+}
+.ck-a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.ck .btn,
+.ckm .btn {
+  box-shadow: none;
+}
+.ck-l {
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+.ckm {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
+.ckm-b {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--bg);
+  color: var(--text);
+}
+.ckm-x {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+}
+.ckr {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.ckr:last-of-type {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.ckr b {
+  display: block;
+  font-size: 14px;
+}
+.ckr i {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.ckon {
+  font-style: normal;
+  font-size: 11px;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ckr input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.ckr u {
+  flex: none;
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 99px;
+  background: var(--line);
+  transition: background 0.2s;
+}
+.ckr u::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+.ckr input:checked + u {
+  background: var(--text);
+}
+.ckr input:checked + u::after {
+  transform: translateX(18px);
+}
+.ckr input:focus-visible + u {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.ck-pl {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12.5px;
+}
+.flg {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.flg a,
+.flg button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.flg a:hover,
+.flg button:hover {
+  color: var(--text);
+}

@@ -1,0 +1,55 @@
+/* Karta me premtimet (Punon / Ngarkohet shpejt / Nuk ka nevojë për shpjegim) */
+
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  transition: 0.25s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 14px 40px var(--glow);
+}
+.card h3 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+.ico,
+.fico {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-content: center;
+  border-radius: 14px;
+  background: rgba(215, 32, 43, 0.08);
+  color: #d7202b;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+}
+.ico svg,
+.fico svg {
+  width: 22px;
+  height: 22px;
+}
+.card:hover .ico,
+.fs.on .fico {
+  background: #d7202b;
+  color: #fff;
+}
+.card:hover .ico {
+  transform: rotate(-6deg);
+}

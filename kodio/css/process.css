@@ -1,0 +1,138 @@
+/* "Si punoj" — timeline që ndjek scroll-in (js/modules/process.js) */
+
+.pcs {
+  overflow-x: clip;
+}
+.flow {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 46px;
+  padding: 10px 0;
+}
+.fline {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--line);
+  border-radius: 2px;
+}
+.fprog {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--muted), var(--text));
+}
+.forb {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  background: var(--text);
+  box-shadow:
+    0 0 0 6px var(--glow),
+    0 0 26px 6px var(--glow);
+  transform: translateY(var(--oy, 0px)) scale(var(--os, 1));
+}
+.fs {
+  position: relative;
+  width: calc(50% - 44px);
+  padding: 24px 26px 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  overflow: hidden;
+  opacity: var(--o, 0);
+  transform: translate3d(var(--x, 0px), var(--y, 0px), 0) skewY(var(--sk, 0deg))
+    rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+  will-change: transform, opacity;
+}
+.fs:nth-of-type(even) {
+  margin-left: auto;
+}
+.fs::before {
+  content: attr(data-no);
+  position: absolute;
+  right: 16px;
+  top: 2px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 74px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.06;
+}
+.fs::after {
+  /* pika në vijë */
+  content: "";
+  position: absolute;
+  top: 34px;
+  right: -51px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  transition: 0.3s;
+}
+.fs:nth-of-type(even)::after {
+  right: auto;
+  left: -51px;
+}
+.fs.on::after {
+  background: var(--text);
+  border-color: var(--text);
+}
+.fs.on {
+  border-color: var(--text);
+  box-shadow: 0 18px 44px var(--glow);
+  background: var(--bg);
+}
+.fs .fico {
+  margin-bottom: 14px;
+}
+.fs h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+.fs p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+@media (max-width: 760px) {
+  .fline {
+    left: 14px;
+  }
+  .forb {
+    left: 14px;
+  }
+  .fs {
+    width: auto;
+    margin-left: 40px !important;
+  }
+  .fs::after {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fs {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

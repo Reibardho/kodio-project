@@ -1,0 +1,41 @@
+/* Komponentët e përbashkët: butonat dhe fushat e formularit */
+
+.btn {
+  font-weight: 600;
+  font-size: 14px;
+  font-family: inherit;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+form {
+  display: grid;
+  gap: 12px;
+}
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.btn {
+  border-color: var(--text);
+}
+
+/* Butonat magnetikë (js/modules/magnetic.js) */
+.btn.mag {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s;
+}
