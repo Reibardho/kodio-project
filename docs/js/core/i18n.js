@@ -12,7 +12,7 @@
     D = {},
     started = false;
   // Zonat që rindërtohen nga JS ose nuk përkthehen (lista e gjuhëve, logot në svg)
-  var SKIP = "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#murl,#lgm,svg";
+  var SKIP = "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#murl,#lgm,svg,.fmark,.cdot";
 
   // Hapësirat dhe rreshtat e rinj bëhen një hapësirë, që paragrafët e ndarë në disa rreshta
   // te index.html të gjejnë përkthimin.

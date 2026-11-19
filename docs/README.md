@@ -24,7 +24,8 @@ kodio/
 │   ├── pricing.css  estimator.css  founder.css
 │   ├── contact.css  footer.css  process.css  trail.css  cookies.css  legal.css
 │   ├── marquee.css  faq.css  buttons.css ← stili i të gjithë butonave
-│   └── theme-toggle.css  ← butoni hëna/dielli (edhe te privacy.html)
+│   ├── theme-toggle.css  ← butoni hëna/dielli (edhe te privacy.html)
+│   └── cursor.css        ← pika e kuqe që ndjek shigjetën e maus-it
 ├── js/
 │   ├── config.js         ← numri i WhatsApp
 │   ├── data/             ← vetëm të dhëna
@@ -40,7 +41,8 @@ kodio/
 │   │   └── header, intro, reveal, network, mockup, globe, robot,
 │   │       projects, pricing, estimator, contact, footer,
 │   │       tech, process (scroll), trail (gjurma e maus-it), cookies,
-│   │       marquee (shiriti lëvizës), magnetic (butonat), spotlight (drita mbi kartat)
+│   │       marquee (shiriti lëvizës), magnetic (butonat), spotlight (drita mbi kartat),
+│   │       wordmark ("kodio" 3D në fund), cursor (pika e maus-it)
 │   └── main.js
 └── assets/
     ├── images/projects/  ← ekranet e projekteve (Rei Mobile Store) në hero
@@ -70,6 +72,9 @@ kodio/
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
+| "kodio" 3D në fund (thellësia, ngjyrat, sa kthehet nga maus-i) | `css/footer.css` (`.fmark.is3d`, `--f3-*`) dhe `js/modules/wordmark.js` (`N` = shtresat, `* 18` / `* 30` = këndet) |
+| Pika e kuqe e maus-it (madhësia, ngjyra, unaza mbi butona) | `css/cursor.css` dhe `js/modules/cursor.js` |
+| Globi (madhësia në telefon) | `css/globe.css` |
 | Statistikat e vizitorëve (Cloudflare Web Analytics, pa cookies) | kodi `cloudflareinsights` para `</body>` te `index.html`, `privacy.html`, `404.html`; statistikat i sheh te dash.cloudflare.com → Web Analytics |
 | Email-in / WhatsApp-in | `js/config.js` (`email`, `whatsapp`); butoni lundrues poshtë djathtas: `.waf` te `index.html`, stili `css/whatsapp-float.css` |
 

@@ -89,6 +89,72 @@
   background-clip: text;
   opacity: 0.55;
 }
+/* "kodio" 3D: shtresa teksti njëra pas tjetrës (js/modules/wordmark.js), kthehen drejt maus-it */
+.fmark.is3d {
+  -webkit-text-stroke: 0;
+  background: none;
+  color: inherit;
+  opacity: 1;
+  perspective: 1100px;
+  overflow-x: clip;
+  padding: 0.04em 0 0.08em;
+  --f3-face-a: #ffffff;
+  --f3-face-b: #e7e7e3;
+  --f3-near: #cfcfca;
+  --f3-far: #8d8d88;
+}
+:root[data-theme="dark"] .fmark.is3d {
+  --f3-face-a: #f4f3ee;
+  --f3-face-b: #d9d8d2;
+  --f3-near: #77766f;
+  --f3-far: #262624;
+}
+.f3 {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(-16deg);
+}
+.fl {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--f3-near), var(--f3-far) calc(var(--k) * 100%));
+  transform: translateZ(calc(var(--z) * -0.0058em));
+}
+.fl:first-child {
+  text-shadow: 0 0.05em 0.07em rgba(0, 0, 0, 0.16);
+}
+.fl.ff {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(var(--f3-face-a) 25%, var(--f3-face-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* telefon/tablet (pa maus): lëkundet lehtë vetë, vetëm kur duket në ekran */
+@media (hover: none), (pointer: coarse) {
+  .fmark.is3d .f3 {
+    animation: fsway 7s ease-in-out infinite alternate paused;
+  }
+  .fmark.is3d.run .f3 {
+    animation-play-state: running;
+  }
+}
+@keyframes fsway {
+  from {
+    transform: rotateX(12deg) rotateY(-20deg);
+  }
+  to {
+    transform: rotateX(8deg) rotateY(20deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fmark.is3d .f3 {
+    animation: none;
+  }
+}
 .fb {
   display: flex;
   justify-content: space-between;

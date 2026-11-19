@@ -37,21 +37,19 @@
   max-width: none;
   transform: translateY(-50%);
 }
+/* tablet/telefon: globi në mes, i plotë dhe brenda ekranit */
 @media (max-width: 860px) {
   .world .wrap {
     grid-template-columns: 1fr;
   }
   .gbox {
-    height: 300px;
+    height: min(88vw, 440px);
   }
   #gl {
-    width: 430px;
-    height: 430px;
-    right: -20%;
-  }
-}
-@media (max-width: 600px) {
-  .gbox {
-    height: 260px;
+    width: min(88vw, 440px);
+    height: min(88vw, 440px);
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
