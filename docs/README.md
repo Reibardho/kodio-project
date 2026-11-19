@@ -80,7 +80,8 @@ kodio/
 
 ## Rregullat
 - **Një vend për çdo gjë.** Mos e përsërit të njëjtin rregull: çmimet vetëm te `pricing.js`, stili i butonave vetëm te `css/buttons.css`, mesazhi i WhatsApp vetëm te `js/core/whatsapp.js` (`K.waHello()`).
-- Ndihmëset e përbashkëta janë te `js/core/kodio.js`: `K.touch` (telefon/tablet), `K.reduce` (pak lëvizje), `K.clamp()`, `K.cssVar()`, `K.onScroll(fn)` (një dëgjues i vetëm scroll-i), `K.onLang(fn)`. Përdori këto në vend që t'i shkruash sërish në modul.
+- Ndihmëset e përbashkëta janë te `js/core/kodio.js`: `K.touch` (telefon/tablet), `K.reduce` (pak lëvizje), `K.clamp()`, `K.cssVar()`, `K.onScroll(fn)` (një dëgjues i vetëm scroll-i), `K.onLang(fn)`, `K.loop(el, fn)` (animacion që punon vetëm kur elementi duket në ekran) dhe `K.themeVar("--bg")` (ngjyrë nga CSS e ruajtur, për animacionet). Përdori këto në vend që t'i shkruash sërish në modul.
+- **Shpejtësia:** mos e lexo `getComputedStyle` / `K.cssVar` brenda animacioneve dhe mos lër `requestAnimationFrame` të punojë kur elementi s'duket. Përdor `K.themeVar` dhe `K.loop`.
 - `index.html` mban përmbajtjen; çdo CSS stilon një seksion; çdo modul JS zotëron një funksion.
 - Skriptet janë klasike (jo ES modules) që të punojë edhe me file://. **Rendi i `<script>` ka rëndësi**: config → data → core → modules → main.
 - Moduli i ri komunikon përmes `window.Kodio` (`K.$`, `K.onLang`, `K.openWA`, …). Ndërrimi i gjuhës: regjistro rindërtimin me `K.onLang(fn)`.

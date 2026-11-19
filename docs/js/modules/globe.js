@@ -70,7 +70,7 @@
         "United Arab Emirates": 1,
       },
       cx0 = GW / 2,
-      bgc = K.cssVar("--bg") || "#fff";
+      bgc = K.themeVar("--bg") || "#fff";
     WLD.forEach(function (c) {
       var hl = HL[c.n];
       c.p.forEach(function (r) {
@@ -143,10 +143,10 @@
     });
     g.globalAlpha = 1;
     rot += 0.004;
-    requestAnimationFrame(gd);
   }
 
-  if (!K.reduce) gd();
+  // rrotullohet vetëm kur globi duket në ekran (K.loop)
+  if (!K.reduce) K.loop(gc, gd);
   else {
     rot = 0.3;
     gd = null;

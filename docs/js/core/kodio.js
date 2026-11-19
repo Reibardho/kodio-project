@@ -8,8 +8,35 @@ window.Kodio = {
   cssVar: function (name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   },
+  // Si cssVar, por e ruan vlerën: përdore brenda animacioneve (getComputedStyle në çdo frame e
+  // ngadalëson faqen). Rifreskohet vetë kur ndërrohet tema (ngjarja "kodio:theme" nga theme.js).
+  themeVar: function (name) {
+    var c = window.Kodio._vars;
+    if (!(name in c)) c[name] = window.Kodio.cssVar(name);
+    return c[name];
+  },
+  _vars: {},
   accent: function () {
-    return window.Kodio.cssVar("--accent") || "#6366f1";
+    return window.Kodio.themeVar("--accent") || "#6366f1";
+  },
+  // Animacion që punon vetëm kur elementi duket në ekran: K.loop(el, function (t) {...})
+  // (kursen CPU dhe bateri; klikimet përgjigjen më shpejt)
+  loop: function (el, fn) {
+    var on = false,
+      raf = 0;
+    function tick(t) {
+      raf = 0;
+      if (!on) return;
+      fn(t);
+      raf = requestAnimationFrame(tick);
+    }
+    new IntersectionObserver(
+      function (e) {
+        on = e[e.length - 1].isIntersecting;
+        if (on && !raf) raf = requestAnimationFrame(tick);
+      },
+      { rootMargin: "120px" },
+    ).observe(el);
   },
   onLang: function (fn) {
     window.Kodio.langHooks.push(fn);
@@ -26,6 +53,10 @@ window.Kodio = {
     window.Kodio.scrollHooks.push(fn);
   },
 };
+
+addEventListener("kodio:theme", function () {
+  window.Kodio._vars = {};
+});
 
 (function () {
   var K = window.Kodio,

@@ -47,6 +47,7 @@
     document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
       b.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
     });
+    window.dispatchEvent(new CustomEvent("kodio:theme", { detail: t }));
   }
 
   function current() {

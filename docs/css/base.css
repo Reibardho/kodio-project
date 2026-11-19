@@ -102,7 +102,9 @@ h2 {
 .rv {
   opacity: 0;
   transform: translateY(24px);
-  transition: 0.7s;
+  transition:
+    opacity 0.7s,
+    transform 0.7s;
 }
 .rv.in {
   opacity: 1;

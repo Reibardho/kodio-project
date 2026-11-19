@@ -119,7 +119,13 @@
   K.setLang = function (l, keep) {
     if (!info(l)) l = "sq";
     load(l, function (ok) {
-      apply(ok ? l : "sq");
+      if (keep) return apply(ok ? l : "sq");
+      // klikim nga vizitori: lëre menunë të mbyllet në ekran, pastaj përkthe faqen
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          apply(ok ? l : "sq");
+        }, 0);
+      });
     });
     if (!keep) remember(l);
   };

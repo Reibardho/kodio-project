@@ -15,7 +15,9 @@
     ffz = false,
     fto,
     fhi,
-    flt = performance.now();
+    flt = performance.now(),
+    lastTr = "",
+    lastRo = "";
 
   var SV2 = [
     ["📲 WhatsApp", "wa"],
@@ -54,8 +56,11 @@
     fpv = (nx - fpx) / Math.max(dt, 0.001);
     fpx = nx;
     if (!on && !ffz && Math.abs(fpx) < 1) fph = 0;
-    fb.style.transform = "translateX(" + fpx.toFixed(1) + "px)";
-    fi.style.rotate = K.clamp(fpv * 0.035, -6, 6) + "deg";
+    // shkruaj stilet vetëm kur ndryshojnë (përndryshe shfletuesi rillogarit faqen në çdo frame)
+    var tr = "translateX(" + fpx.toFixed(1) + "px)",
+      ro = K.clamp(fpv * 0.035, -6, 6).toFixed(2) + "deg";
+    if (tr !== lastTr) fb.style.transform = lastTr = tr;
+    if (ro !== lastRo) fi.style.rotate = lastRo = ro;
     if (Math.abs(fpv) > 20) fi.classList.toggle("flip", fpv < 0);
     fb.classList.toggle("mv", on);
   }
