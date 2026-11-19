@@ -70,6 +70,7 @@ kodio/
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
+| Statistikat e vizitorëve (Cloudflare Web Analytics, pa cookies) | kodi `cloudflareinsights` para `</body>` te `index.html`, `privacy.html`, `404.html`; statistikat i sheh te dash.cloudflare.com → Web Analytics |
 | Email-in / WhatsApp-in | `js/config.js` (`email`, `whatsapp`); butoni lundrues poshtë djathtas: `.waf` te `index.html`, stili `css/whatsapp-float.css` |
 
 ## Gjuhët
