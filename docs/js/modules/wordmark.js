@@ -23,8 +23,14 @@
   }
   m.innerHTML = '<span class="f3">' + html + "</span>";
   m.classList.add("is3d");
-  var f3 = m.firstChild,
-    vis = false;
+  var f3 = m.firstChild;
+  // mbrojtje: nëse CSS-i 3D nuk është ngarkuar ende, mos shfaq shtresat njëra pas tjetrës
+  if (getComputedStyle(f3.firstChild).position !== "absolute") {
+    m.classList.remove("is3d");
+    m.textContent = word;
+    return;
+  }
+  var vis = false;
 
   new IntersectionObserver(function (e) {
     vis = e[e.length - 1].isIntersecting;

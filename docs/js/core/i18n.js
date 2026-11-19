@@ -12,7 +12,8 @@
     D = {},
     started = false;
   // Zonat që rindërtohen nga JS ose nuk përkthehen (lista e gjuhëve, logot në svg)
-  var SKIP = "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#murl,#lgm,svg,.fmark,.cdot";
+  var SKIP =
+    "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#murl,#lgm,svg,.fmark,.cdot";
 
   // Hapësirat dhe rreshtat e rinj bëhen një hapësirë, që paragrafët e ndarë në disa rreshta
   // te index.html të gjejnë përkthimin.
@@ -36,7 +37,7 @@
   function load(l, cb) {
     if (l === "sq" || PACK[l]) return cb(true);
     var sc = document.createElement("script");
-    sc.src = "js/data/lang/" + l + ".js";
+    sc.src = "js/data/lang/" + l + ".js?v=" + ((window.KODIO_CONFIG || {}).version || "");
     sc.onload = function () {
       cb(!!PACK[l]);
     };

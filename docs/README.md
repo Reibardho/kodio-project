@@ -125,6 +125,10 @@ GoDaddy → **My Products → kodiowebstudio.com → DNS → Manage DNS**:
 
 ### 4. Çdo herë që ndryshon diçka
 1. Hap në VS Code folderin `kodio-project`, ndrysho skedarët brenda `docs` dhe kontrolloji me Live Server.
+   - **Nëse ndryshove CSS ose JS:** ndrysho numrin e versionit, që vizitorët të marrin menjëherë skedarët e rinj
+     (përndryshe shfletuesi mund të mbajë versionin e vjetër deri në 10 minuta). Në VS Code: `Ctrl+Shift+H` →
+     kërko p.sh. `20261120` → zëvendëso me datën e sotme (p.sh. `20261205`) → **Replace All**.
+     Ndryshon vetë te `index.html`, `privacy.html` dhe `js/config.js`.
 2. **Source Control** → shkruaj një mesazh (p.sh. "Ndryshova çmimet") → **Commit** → **Sync Changes / Push**.
 3. Pas ~1 minute ndryshimi është te https://kodiowebstudio.com (rifresko me `Ctrl+Shift+R`).
 
