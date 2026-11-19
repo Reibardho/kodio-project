@@ -12,6 +12,8 @@
     />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/legal.css" />
+    <link rel="stylesheet" href="css/theme-toggle.css" />
+    <script src="js/core/theme.js"></script>
   </head>
   <body class="legal">
     <header class="lh">
@@ -23,7 +25,23 @@
         <div class="lctl">
           <button type="button" data-lang="sq" class="on">AL</button>
           <button type="button" data-lang="en">EN</button>
-          <button type="button" id="th" aria-label="Tema">☾</button>
+          <button
+            type="button"
+            id="th"
+            data-theme-toggle
+            aria-label="Tema e errët / Dark mode"
+            aria-pressed="false"
+          >
+            <svg class="tg-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11z" />
+            </svg>
+            <svg class="tg-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path
+                d="M12 2.5v2.1M12 19.4v2.1M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.5 12h2.1M19.4 12h2.1M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
@@ -86,12 +104,16 @@
           </tr>
           <tr>
             <td>Të domosdoshme</td>
-            <td>Ruajnë zgjedhjen tënde për cookies (<code>kodio_consent</code>).</td>
+            <td>
+              Ruajnë zgjedhjen tënde për cookies (<code>kodio_consent</code>). Gjuha dhe tema që
+              zgjodhe mbahen edhe për skedën e hapur (<code>sessionStorage</code>), që të mos
+              humbasin me refresh, dhe fshihen kur mbyll shfletuesin.
+            </td>
             <td>Deri në 12 muaj</td>
           </tr>
           <tr>
             <td>Preferenca</td>
-            <td>Gjuha dhe tema e zgjedhur.</td>
+            <td>Mbajnë mend gjuhën dhe temën e zgjedhur edhe për vizitat e ardhshme.</td>
             <td>Deri në 12 muaj</td>
           </tr>
           <tr>
@@ -196,12 +218,16 @@
           </tr>
           <tr>
             <td>Essential</td>
-            <td>Remember your cookie choice (<code>kodio_consent</code>).</td>
+            <td>
+              Remember your cookie choice (<code>kodio_consent</code>). Your chosen language and
+              theme are also kept for the open tab (<code>sessionStorage</code>) so they survive a
+              refresh, and are deleted when you close the browser.
+            </td>
             <td>Up to 12 months</td>
           </tr>
           <tr>
             <td>Preferences</td>
-            <td>Chosen language and theme.</td>
+            <td>Remember your chosen language and theme for future visits too.</td>
             <td>Up to 12 months</td>
           </tr>
           <tr>
@@ -273,9 +299,6 @@
         });
         var q = new URLSearchParams(location.search).get("l");
         if (q && q !== "sq") setLang("en");
-        document.getElementById("th").onclick = function () {
-          r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
-        };
       })();
     </script>
   </body>

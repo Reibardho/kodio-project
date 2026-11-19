@@ -1,4 +1,5 @@
-/* Header: menuja me 9 pika, tema light/dark, shiriti i progresit lart dhe lidhja aktive në menu gjatë scroll-it. */
+/* Header: menuja me 9 pika, shiriti i progresit lart dhe lidhja aktive në menu gjatë scroll-it.
+   Butoni i temës (hëna/dielli) punon nga js/core/theme.js. */
 (function () {
   var K = window.Kodio,
     $ = K.$;
@@ -31,14 +32,6 @@
     if (e.key === "Escape") tog(false);
   });
 
-  $("th2").onclick = function () {
-    var r = document.documentElement,
-      d =
-        r.getAttribute("data-theme") === "dark" ||
-        (!r.getAttribute("data-theme") && matchMedia("(prefers-color-scheme:dark)").matches);
-    r.setAttribute("data-theme", d ? "light" : "dark");
-  };
-
   var nls = document.querySelectorAll(".nl a");
 
   var sp = $("sp");
@@ -62,6 +55,4 @@
     var h = document.documentElement;
     sp.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100 + "%";
   });
-
-  document.documentElement.setAttribute("data-theme", "light");
 })();

@@ -96,14 +96,24 @@
     });
   }
 
-  // Ruhet vetëm nëse vizitori ka lejuar cookies "Preferenca"
-  function remember(l) {
+  // Për vizitat e ardhshme (localStorage): vetëm nëse vizitori ka lejuar cookies "Preferenca"
+  function persist(l) {
     try {
       if (K.consent && K.consent.preferences) localStorage.setItem(KEY, l);
       else localStorage.removeItem(KEY);
     } catch {
       /* pa localStorage */
     }
+  }
+
+  // Zgjedhja e vizitorit: mbahet gjithmonë për skedën e hapur (që të mos humbasë me refresh)
+  function remember(l) {
+    try {
+      sessionStorage.setItem(KEY, l);
+    } catch {
+      /* pa sessionStorage */
+    }
+    persist(l);
   }
 
   K.setLang = function (l, keep) {
@@ -114,14 +124,14 @@
     if (!keep) remember(l);
   };
 
-  // Gjuha në hapje: zgjedhja e ruajtur, përndryshe gjuha e shfletuesit (nëse e kemi), përndryshe shqip
+  // Gjuha në hapje: zgjedhja e kësaj skede, pastaj ajo e ruajtur, pastaj gjuha e shfletuesit (nëse e kemi), pastaj shqip
   K.startLang = function () {
     started = true;
     var saved = null;
     try {
-      saved = localStorage.getItem(KEY);
+      saved = sessionStorage.getItem(KEY) || localStorage.getItem(KEY);
     } catch {
-      /* pa localStorage */
+      /* pa storage */
     }
     if (saved && info(saved)) return saved;
     var nav =
@@ -137,7 +147,7 @@
 
   // Kur ndryshon pëlqimi për cookies: ruaj ose fshi gjuhën (në hapje të faqes vetëm fshin, nëse s'ka leje)
   window.addEventListener("kodio:consent", function (e) {
-    if (started || !(e.detail && e.detail.preferences)) remember(LG);
+    if (started || !(e.detail && e.detail.preferences)) persist(LG);
   });
 
   // --- Menuja 🌐

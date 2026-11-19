@@ -23,7 +23,8 @@ kodio/
 │   ├── features.css  globe.css  tech.css  projects.css
 │   ├── pricing.css  estimator.css  founder.css
 │   ├── contact.css  footer.css  process.css  trail.css  cookies.css  legal.css
-│   └── marquee.css  faq.css  buttons.css ← stili i të gjithë butonave (ngarkohet i fundit)
+│   ├── marquee.css  faq.css  buttons.css ← stili i të gjithë butonave
+│   └── theme-toggle.css  ← butoni hëna/dielli (edhe te privacy.html)
 ├── js/
 │   ├── config.js         ← numri i WhatsApp
 │   ├── data/             ← vetëm të dhëna
@@ -34,6 +35,7 @@ kodio/
 │   │   └── world.js      ← hartat e globit
 │   ├── core/             ← kernel i përbashkët (namespace `Kodio`)
 │   │   ├── kodio.js  i18n.js  whatsapp.js
+│   │   └── theme.js      ← tema e çelët/e errët (ngarkohet në <head>, edhe te privacy.html)
 │   ├── modules/          ← një modul për çdo funksion
 │   │   └── header, intro, reveal, network, mockup, globe, robot,
 │   │       projects, pricing, estimator, contact, footer,
@@ -64,14 +66,15 @@ kodio/
 | Foton kur ndahet linku (Facebook, WhatsApp) | `assets/images/og-cover.jpg` dhe meta `og:` në `<head>` — kur të kesh domain, vendos URL të plotë |
 | Politikën e privatësisë (tekst, email, data) | `privacy.html` |
 | Cookies (kategoritë, banneri) | `index.html` (`#ck`, `#ckm`) dhe `js/modules/cookies.js` |
-| Ngjyrat (e kuqja `#d7202b`) | `css/base.css` → `:root` |
+| Ngjyrat (e kuqja `#d7202b`) | `css/base.css` → `:root` (tema e çelët) dhe `:root[data-theme="dark"]` (e errëta) |
+| Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
 | Email-in / WhatsApp-in | `js/config.js` (`email`, `whatsapp`); butoni lundrues poshtë djathtas: `.waf` te `index.html`, stili `css/whatsapp-float.css` |
 
 ## Gjuhët
 - Faqja hapet në gjuhën e shfletuesit të vizitorit (nëse e kemi), përndryshe në shqip. Menuja 🌐 lart ndërron gjuhën.
-- Gjuha e zgjedhur mbahet mend vetëm nëse vizitori ka lejuar cookies "Preferenca".
+- Gjuha dhe tema e zgjedhur mbeten pas refresh-it (për skedën e hapur). Për vizitat e ardhshme mbahen mend vetëm nëse vizitori ka lejuar cookies "Preferenca".
 - Arabishtja hapet nga e djathta (RTL). Politika e privatësisë është në shqip dhe anglisht (për gjuhët e tjera hapet anglisht).
 
 ## Rregullat
@@ -101,7 +104,8 @@ VS Code del online me një **Commit + Push**, rreth 1 minutë më vonë.
 
 ### 2. Një herë: aktivizo GitHub Pages
 1. Te github.com hap repo-n → **Settings → Pages**.
-2. **Source:** Deploy from a branch → **Branch:** `main`, folder `/ (root)` → **Save**.
+2. **Source:** Deploy from a branch → **Branch:** `main`, folder **`/docs`** → **Save**.
+   (Website-i ndodhet te folderi `docs` brenda repo-s `kodio-project`.)
 3. **Custom domain:** shkruaj `kodiowebstudio.com` → **Save** (skedari `CNAME` është gati në projekt).
 
 ### 3. Një herë: lidh domain-in te GoDaddy
@@ -113,7 +117,7 @@ GoDaddy → **My Products → kodiowebstudio.com → DNS → Manage DNS**:
 - Pas disa orësh (deri në 24) te **Settings → Pages** ndiz **Enforce HTTPS**.
 
 ### 4. Çdo herë që ndryshon diçka
-1. Ndrysho skedarët në VS Code dhe kontrolloji me Live Server.
+1. Hap në VS Code folderin `kodio-project`, ndrysho skedarët brenda `docs` dhe kontrolloji me Live Server.
 2. **Source Control** → shkruaj një mesazh (p.sh. "Ndryshova çmimet") → **Commit** → **Sync Changes / Push**.
 3. Pas ~1 minute ndryshimi është te https://kodiowebstudio.com (rifresko me `Ctrl+Shift+R`).
 

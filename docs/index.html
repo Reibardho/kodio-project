@@ -41,7 +41,10 @@
         "image": "https://kodiowebstudio.com/assets/images/og-cover.jpg",
         "telephone": "+355698277335",
         "email": "kodiowebstudio@gmail.com",
-        "sameAs": ["https://www.tiktok.com/@kodiowebstudio"],
+        "sameAs": [
+          "https://www.tiktok.com/@kodiowebstudio",
+          "https://www.instagram.com/kodiowebstudio/"
+        ],
         "priceRange": "€100 – €700+",
         "areaServed": "Worldwide",
         "address": {
@@ -63,6 +66,8 @@
           document.documentElement.classList.add("no-intro");
       } catch (e) {}
     </script>
+    <!-- Tema (e çelët / e errët): ngarkohet para CSS-it që faqja të hapet direkt me temën e zgjedhur -->
+    <script src="js/core/theme.js"></script>
     <title>Kodio – Web & Software Engineering</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Playfair+Display:wght@700;800&display=swap"
@@ -91,6 +96,7 @@
     <link rel="stylesheet" href="css/marquee.css" />
     <link rel="stylesheet" href="css/faq.css" />
     <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/theme-toggle.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
     <link rel="stylesheet" href="css/language.css" />
   </head>
@@ -159,7 +165,24 @@
               </button>
               <div class="lgm" id="lgm" hidden></div>
             </div>
-            <button class="tg" id="th2" aria-label="Tema">☾</button>
+            <button
+              class="tg"
+              id="th2"
+              type="button"
+              data-theme-toggle
+              aria-label="Tema e errët / Dark mode"
+              aria-pressed="false"
+            >
+              <svg class="tg-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11z" />
+              </svg>
+              <svg class="tg-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.2" />
+                <path
+                  d="M12 2.5v2.1M12 19.4v2.1M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.5 12h2.1M19.4 12h2.1M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"
+                />
+              </svg>
+            </button>
             <button
               class="burger"
               id="bg"
