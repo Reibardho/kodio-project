@@ -68,8 +68,8 @@
   display: grid;
   place-items: center;
   padding: 18px;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(4px);
+  /* pa blur pas dritares: blur-i i gjithë faqes e bënte hapjen/mbylljen të ngadaltë në telefona të dobët */
+  background: rgba(0, 0, 0, 0.55);
 }
 .ckm-b {
   position: relative;

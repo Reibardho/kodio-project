@@ -31,7 +31,7 @@ kodio/
 │   ├── data/             ← vetëm të dhëna
 │   │   ├── pricing.js    ← çmimet: NJË burim për kartat e paketave dhe për vlerësuesin
 │   │   ├── sites.js      ← projektet në karusel
-│   │   ├── languages.js  ← lista e gjuhëve në menunë 🌐 dhe tekstet shqip të hero-s
+│   │   ├── languages.js  ← lista e gjuhëve në menunë 🌐 dhe tekstet shqip të hero-s (ngarkohet në <head>)
 │   │   ├── lang/         ← një skedar për çdo gjuhë: en, de, es, fr, it, pt, ru, zh, hi, ar
 │   │   └── world.js      ← hartat e globit
 │   ├── core/             ← kernel i përbashkët (namespace `Kodio`)
@@ -89,7 +89,8 @@ kodio/
 - Ndihmëset e përbashkëta janë te `js/core/kodio.js`: `K.touch` (telefon/tablet), `K.reduce` (pak lëvizje), `K.clamp()`, `K.cssVar()`, `K.onScroll(fn)` (një dëgjues i vetëm scroll-i), `K.onLang(fn)`, `K.loop(el, fn)` (animacion që punon vetëm kur elementi duket në ekran) dhe `K.themeVar("--bg")` (ngjyrë nga CSS e ruajtur, për animacionet). Përdori këto në vend që t'i shkruash sërish në modul.
 - **Shpejtësia:** mos e lexo `getComputedStyle` / `K.cssVar` brenda animacioneve dhe mos lër `requestAnimationFrame` të punojë kur elementi s'duket. Përdor `K.themeVar` dhe `K.loop`.
 - `index.html` mban përmbajtjen; çdo CSS stilon një seksion; çdo modul JS zotëron një funksion.
-- Skriptet janë klasike (jo ES modules) që të punojë edhe me file://. **Rendi i `<script>` ka rëndësi**: config → data → core → modules → main.
+- Skriptet janë klasike (jo ES modules) që të punojë edhe me file://. **Rendi i `<script>` ka rëndësi**: config → core (kodio, i18n) → data → modules → main. `theme.js` dhe `languages.js` janë në `<head>`.
+- **Faqja nuk duhet të "kërcejë" (CLS):** pas refresh / "Back" vendi ku ishte vizitori rikthehet nga `js/main.js`, pasi seksionet e ndërtuara nga JS kanë marrë lartësinë e tyre (prandaj `history.scrollRestoration = "manual"` në `<head>`). Kur faqja hapet në një gjuhë tjetër, `<head>` shkarkon përkthimin që në fillim dhe fsheh tekstet (klasa `lg-wait`) derisa `K.earlyLang()` t'i përkthejë.
 - Moduli i ri komunikon përmes `window.Kodio` (`K.$`, `K.onLang`, `K.openWA`, …). Ndërrimi i gjuhës: regjistro rindërtimin me `K.onLang(fn)`.
 
 ## Shto një seksion të ri

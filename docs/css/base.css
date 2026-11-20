@@ -31,6 +31,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 70px);
 }
+/* Faqja po hapet në një gjuhë tjetër (shih <head> te index.html): tekstet fshihen për një çast,
+   derisa të përkthehen, që të mos dalin shqip e pastaj të "kërcejnë" */
+html.lg-wait main,
+html.lg-wait footer,
+html.lg-wait .nl {
+  visibility: hidden;
+}
 *,
 *::before,
 *::after {

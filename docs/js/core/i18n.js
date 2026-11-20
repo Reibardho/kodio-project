@@ -117,10 +117,14 @@
     persist(l);
   }
 
-  K.setLang = function (l, keep) {
+  // keep: hapja e faqes (pa e ruajtur zgjedhjen); then: thirret pasi faqja është përkthyer
+  K.setLang = function (l, keep, then) {
     if (!info(l)) l = "sq";
     load(l, function (ok) {
-      if (keep) return apply(ok ? l : "sq");
+      if (keep) {
+        apply(ok ? l : "sq");
+        return then && then();
+      }
       // klikim nga vizitori: lëre menunë të mbyllet në ekran, pastaj përkthe faqen
       requestAnimationFrame(function () {
         setTimeout(function () {
@@ -134,6 +138,9 @@
   // Gjuha në hapje: zgjedhja e kësaj skede, pastaj ajo e ruajtur, pastaj gjuha e shfletuesit (nëse e kemi), pastaj shqip
   K.startLang = function () {
     started = true;
+    return pick();
+  };
+  function pick() {
     var saved = null;
     try {
       saved = sessionStorage.getItem(KEY) || localStorage.getItem(KEY);
@@ -150,6 +157,19 @@
       if (info(c)) return c;
     }
     return "sq";
+  }
+
+  // Hapja në një gjuhë tjetër: <head> e shkarkon përkthimin që në fillim. Sapo ai të jetë gati
+  // (dhe para se modulet të ndërtojnë pjesët e tjera), përkthehen tekstet e index.html dhe faqja
+  // shfaqet (hiqet lg-wait). Përkthimi i plotë (me pjesët nga JS) bëhet prapë te js/main.js.
+  var early = false;
+  K.earlyLang = function () {
+    var l = pick();
+    if (early || K.ready || l === "sq" || !PACK[l]) return;
+    early = true;
+    apply(l);
+    translateDom();
+    document.documentElement.classList.remove("lg-wait");
   };
 
   // Kur ndryshon pëlqimi për cookies: ruaj ose fshi gjuhën (në hapje të faqes vetëm fshin, nëse s'ka leje)
@@ -202,4 +222,5 @@
   }
 
   apply("sq");
+  K.earlyLang(); // nëse përkthimi i vizitorit ka ardhur tashmë
 })();

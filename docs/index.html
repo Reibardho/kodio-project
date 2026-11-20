@@ -65,41 +65,94 @@
         if (sessionStorage.getItem("kodio_intro"))
           document.documentElement.classList.add("no-intro");
       } catch (e) {}
+      // Pas refresh / "Back" faqja kthehet te vendi ku ishte nga js/main.js, pasi janë ndërtuar seksionet.
+      // (Kur e bën shfletuesi vetë, e bën më herët dhe faqja "kërcen": Cloudflare e sheh si CLS.)
+      try {
+        history.scrollRestoration = "manual";
+      } catch (e) {}
     </script>
     <!-- Tema (e çelët / e errët): ngarkohet para CSS-it që faqja të hapet direkt me temën e zgjedhur -->
-    <script src="js/core/theme.js?v=20261120g"></script>
+    <script src="js/core/theme.js?v=20261120h"></script>
+    <!-- Gjuhët: ngarkohen këtu lart, që përkthimi i vizitorit të nisë të shkarkohet që në fillim -->
+    <script src="js/data/languages.js?v=20261120h"></script>
+    <script>
+      // Nëse faqja do hapet në një gjuhë tjetër (si K.startLang te js/core/i18n.js), tekstet fshihen
+      // derisa të përkthehen (klasa lg-wait), që të mos dalë shqip e pastaj të "kërcejë" (CLS).
+      // Përkthimi shkarkohet që tani dhe zbatohet sapo të jetë gati (K.earlyLang).
+      (function () {
+        var codes = window.KODIO_LANGS.map(function (x) {
+            return x.code;
+          }),
+          l = null,
+          i,
+          c;
+        try {
+          l = sessionStorage.getItem("kodio_lang") || localStorage.getItem("kodio_lang");
+        } catch (e) {}
+        if (codes.indexOf(l) < 0) {
+          l = "sq";
+          var nav =
+            navigator.languages && navigator.languages.length
+              ? navigator.languages
+              : [navigator.language || "sq"];
+          for (i = 0; i < nav.length; i++) {
+            c = String(nav[i]).slice(0, 2).toLowerCase();
+            if (codes.indexOf(c) > -1) {
+              l = c;
+              break;
+            }
+          }
+        }
+        if (l === "sq") return;
+        var root = document.documentElement,
+          v = document.querySelector('script[src*="languages.js"]').src.split("?v=")[1] || "",
+          s = document.createElement("script");
+        root.classList.add("lg-wait");
+        s.async = true;
+        s.fetchPriority = "high"; // para fotove, që tekstet të shfaqen sa më shpejt
+        s.src = "js/data/lang/" + l + ".js?v=" + v;
+        s.onload = function () {
+          if (window.Kodio && window.Kodio.earlyLang) window.Kodio.earlyLang();
+        };
+        document.head.appendChild(s);
+        // siguri: nëse përkthimi vonon shumë, shfaqe faqen gjithsesi
+        setTimeout(function () {
+          root.classList.remove("lg-wait");
+        }, 3500);
+      })();
+    </script>
     <title>Kodio – Web & Software Engineering</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Playfair+Display:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/base.css?v=20261120g" />
-    <link rel="stylesheet" href="css/components.css?v=20261120g" />
-    <link rel="stylesheet" href="css/header.css?v=20261120g" />
-    <link rel="stylesheet" href="css/intro.css?v=20261120g" />
-    <link rel="stylesheet" href="css/hero.css?v=20261120g" />
-    <link rel="stylesheet" href="css/robot.css?v=20261120g" />
-    <link rel="stylesheet" href="css/mockup.css?v=20261120g" />
-    <link rel="stylesheet" href="css/before-after.css?v=20261120g" />
-    <link rel="stylesheet" href="css/features.css?v=20261120g" />
-    <link rel="stylesheet" href="css/globe.css?v=20261120g" />
-    <link rel="stylesheet" href="css/tech.css?v=20261120g" />
-    <link rel="stylesheet" href="css/projects.css?v=20261120g" />
-    <link rel="stylesheet" href="css/pricing.css?v=20261120g" />
-    <link rel="stylesheet" href="css/estimator.css?v=20261120g" />
-    <link rel="stylesheet" href="css/founder.css?v=20261120g" />
-    <link rel="stylesheet" href="css/contact.css?v=20261120g" />
-    <link rel="stylesheet" href="css/footer.css?v=20261120g" />
-    <link rel="stylesheet" href="css/process.css?v=20261120g" />
-    <link rel="stylesheet" href="css/trail.css?v=20261120g" />
-    <link rel="stylesheet" href="css/cookies.css?v=20261120g" />
-    <link rel="stylesheet" href="css/marquee.css?v=20261120g" />
-    <link rel="stylesheet" href="css/faq.css?v=20261120g" />
-    <link rel="stylesheet" href="css/buttons.css?v=20261120g" />
-    <link rel="stylesheet" href="css/theme-toggle.css?v=20261120g" />
-    <link rel="stylesheet" href="css/whatsapp-float.css?v=20261120g" />
-    <link rel="stylesheet" href="css/language.css?v=20261120g" />
-    <link rel="stylesheet" href="css/cursor.css?v=20261120g" />
+    <link rel="stylesheet" href="css/base.css?v=20261120h" />
+    <link rel="stylesheet" href="css/components.css?v=20261120h" />
+    <link rel="stylesheet" href="css/header.css?v=20261120h" />
+    <link rel="stylesheet" href="css/intro.css?v=20261120h" />
+    <link rel="stylesheet" href="css/hero.css?v=20261120h" />
+    <link rel="stylesheet" href="css/robot.css?v=20261120h" />
+    <link rel="stylesheet" href="css/mockup.css?v=20261120h" />
+    <link rel="stylesheet" href="css/before-after.css?v=20261120h" />
+    <link rel="stylesheet" href="css/features.css?v=20261120h" />
+    <link rel="stylesheet" href="css/globe.css?v=20261120h" />
+    <link rel="stylesheet" href="css/tech.css?v=20261120h" />
+    <link rel="stylesheet" href="css/projects.css?v=20261120h" />
+    <link rel="stylesheet" href="css/pricing.css?v=20261120h" />
+    <link rel="stylesheet" href="css/estimator.css?v=20261120h" />
+    <link rel="stylesheet" href="css/founder.css?v=20261120h" />
+    <link rel="stylesheet" href="css/contact.css?v=20261120h" />
+    <link rel="stylesheet" href="css/footer.css?v=20261120h" />
+    <link rel="stylesheet" href="css/process.css?v=20261120h" />
+    <link rel="stylesheet" href="css/trail.css?v=20261120h" />
+    <link rel="stylesheet" href="css/cookies.css?v=20261120h" />
+    <link rel="stylesheet" href="css/marquee.css?v=20261120h" />
+    <link rel="stylesheet" href="css/faq.css?v=20261120h" />
+    <link rel="stylesheet" href="css/buttons.css?v=20261120h" />
+    <link rel="stylesheet" href="css/theme-toggle.css?v=20261120h" />
+    <link rel="stylesheet" href="css/whatsapp-float.css?v=20261120h" />
+    <link rel="stylesheet" href="css/language.css?v=20261120h" />
+    <link rel="stylesheet" href="css/cursor.css?v=20261120h" />
   </head>
   <body>
     <canvas id="trail" aria-hidden="true"></canvas>
@@ -1237,36 +1290,35 @@
         <div class="vcap" id="vcap"></div>
       </div>
     </div>
-    <script src="js/config.js?v=20261120g"></script>
-    <script src="js/data/languages.js?v=20261120g"></script>
-    <script src="js/data/world.js?v=20261120g"></script>
-    <script src="js/data/sites.js?v=20261120g"></script>
-    <script src="js/data/pricing.js?v=20261120g"></script>
-    <script src="js/core/kodio.js?v=20261120g"></script>
-    <script src="js/core/i18n.js?v=20261120g"></script>
-    <script src="js/core/whatsapp.js?v=20261120g"></script>
-    <script src="js/modules/header.js?v=20261120g"></script>
-    <script src="js/modules/intro.js?v=20261120g"></script>
-    <script src="js/modules/reveal.js?v=20261120g"></script>
-    <script src="js/modules/network.js?v=20261120g"></script>
-    <script src="js/modules/mockup.js?v=20261120g"></script>
-    <script src="js/modules/globe.js?v=20261120g"></script>
-    <script src="js/modules/robot.js?v=20261120g"></script>
-    <script src="js/modules/projects.js?v=20261120g"></script>
-    <script src="js/modules/pricing.js?v=20261120g"></script>
-    <script src="js/modules/estimator.js?v=20261120g"></script>
-    <script src="js/modules/contact.js?v=20261120g"></script>
-    <script src="js/modules/footer.js?v=20261120g"></script>
-    <script src="js/modules/tech.js?v=20261120g"></script>
-    <script src="js/modules/process.js?v=20261120g"></script>
-    <script src="js/modules/trail.js?v=20261120g"></script>
-    <script src="js/modules/cookies.js?v=20261120g"></script>
-    <script src="js/modules/marquee.js?v=20261120g"></script>
-    <script src="js/modules/magnetic.js?v=20261120g"></script>
-    <script src="js/modules/spotlight.js?v=20261120g"></script>
-    <script src="js/modules/wordmark.js?v=20261120g"></script>
-    <script src="js/modules/cursor.js?v=20261120g"></script>
-    <script src="js/main.js?v=20261120g"></script>
+    <script src="js/config.js?v=20261120h"></script>
+    <script src="js/core/kodio.js?v=20261120h"></script>
+    <script src="js/core/i18n.js?v=20261120h"></script>
+    <script src="js/data/world.js?v=20261120h"></script>
+    <script src="js/data/sites.js?v=20261120h"></script>
+    <script src="js/data/pricing.js?v=20261120h"></script>
+    <script src="js/core/whatsapp.js?v=20261120h"></script>
+    <script src="js/modules/header.js?v=20261120h"></script>
+    <script src="js/modules/intro.js?v=20261120h"></script>
+    <script src="js/modules/reveal.js?v=20261120h"></script>
+    <script src="js/modules/network.js?v=20261120h"></script>
+    <script src="js/modules/mockup.js?v=20261120h"></script>
+    <script src="js/modules/globe.js?v=20261120h"></script>
+    <script src="js/modules/robot.js?v=20261120h"></script>
+    <script src="js/modules/projects.js?v=20261120h"></script>
+    <script src="js/modules/pricing.js?v=20261120h"></script>
+    <script src="js/modules/estimator.js?v=20261120h"></script>
+    <script src="js/modules/contact.js?v=20261120h"></script>
+    <script src="js/modules/footer.js?v=20261120h"></script>
+    <script src="js/modules/tech.js?v=20261120h"></script>
+    <script src="js/modules/process.js?v=20261120h"></script>
+    <script src="js/modules/trail.js?v=20261120h"></script>
+    <script src="js/modules/cookies.js?v=20261120h"></script>
+    <script src="js/modules/marquee.js?v=20261120h"></script>
+    <script src="js/modules/magnetic.js?v=20261120h"></script>
+    <script src="js/modules/spotlight.js?v=20261120h"></script>
+    <script src="js/modules/wordmark.js?v=20261120h"></script>
+    <script src="js/modules/cursor.js?v=20261120h"></script>
+    <script src="js/main.js?v=20261120h"></script>
     <!-- Cloudflare Web Analytics: statistika anonime të vizitave, pa cookies (shih privacy.html) -->
     <script
       type="module"
