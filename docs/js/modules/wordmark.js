@@ -11,6 +11,7 @@
   var cv = document.createElement("canvas"),
     c = cv.getContext && cv.getContext("2d");
   if (!c) return;
+  cv.width = cv.height = 0; // pa madhësi derisa të ndërtohen kubet (që faqja të mos "kërcejë")
 
   // ---- rregullime ----
   var STAGGER = 0.4, // sa e ndarë është radha e copave gjatë scroll-it (0 = të gjitha njëherësh)
@@ -434,21 +435,31 @@
   // rindërto vetëm kur ndryshon gjerësia (në iPhone shiriti i Safari-t ndryshon vetëm lartësinë gjatë scroll-it)
   var rt,
     lastW = innerWidth;
+  var built = false;
   addEventListener("resize", function () {
     if (innerWidth === lastW) return;
     lastW = innerWidth;
     clearTimeout(rt);
-    rt = setTimeout(build, 150);
+    if (built) rt = setTimeout(build, 150);
   });
 
-  // prit fontin (Inter) që forma e kubeve të jetë e saktë
-  var cs = getComputedStyle(m);
-  (document.fonts && document.fonts.load
-    ? document.fonts.load("800 " + cs.fontSize + " " + cs.fontFamily).catch(function () {})
-    : Promise.resolve()
-  ).then(function () {
-    build();
-    p = pp = progress(); // nëse faqja hapet direkt në fund, fjala del menjëherë e plotë
-    draw(performance.now());
-  });
+  // Kubet ndërtohen vetëm kur footer-i afrohet (hapja e faqes mbetet e lehtë).
+  // Prit fontin (Inter) që forma e kubeve të jetë e saktë.
+  new IntersectionObserver(
+    function (en, io) {
+      if (built || !en[en.length - 1].isIntersecting) return;
+      built = true;
+      io.disconnect();
+      var cs = getComputedStyle(m);
+      (document.fonts && document.fonts.load
+        ? document.fonts.load("800 " + cs.fontSize + " " + cs.fontFamily).catch(function () {})
+        : Promise.resolve()
+      ).then(function () {
+        build();
+        p = pp = progress(); // nëse faqja hapet direkt në fund, fjala del menjëherë e plotë
+        draw(performance.now());
+      });
+    },
+    { rootMargin: "1500px 0px" },
+  ).observe(m);
 })();

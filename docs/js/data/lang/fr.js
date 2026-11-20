@@ -27,12 +27,12 @@ window.KODIO_LANG.fr = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "Chaque bouton, formulaire et page est testé avant la livraison. Pas de bugs, pas de surprises.",
     "02 · Ngarkohet shpejt": "02 · Rapide à charger",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "Code léger, images optimisées et hébergement rapide pour des scores Lighthouse supérieurs à 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "Code léger, images optimisées et hébergement rapide, pour que le site s'ouvre vite même sur mobile.",
     "03 · Nuk ka nevojë për shpjegim": "03 · Aucune explication nécessaire",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "Un design clair où le visiteur comprend tout de suite ce que vous proposez et comment vous contacter.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "Votre site est ouvert 24 h/24 et 7 j/7 aux clients du monde entier. Nous travaillons à distance, avec une communication claire et des délais respectés, où que vous soyez.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "Landing pages, sites d'entreprise et applications web qui fonctionnent, se chargent vite et attirent des clients.",
@@ -69,8 +69,8 @@ window.KODIO_LANG.fr = {
     "Një proces i qartë nga ideja deri në publikim.":
       "Un processus clair, de l'idée à la mise en ligne.",
     "1. Biseda & oferta": "1. Échange & devis",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "Nous écoutons vos besoins et envoyons un devis sous 24 heures.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "Nous écoutons vos besoins et envoyons un devis sous 1 à 2 jours.",
     "2. Dizajn": "2. Design",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "Nous vous montrons la maquette et l'ajustons ensemble avant de coder.",
@@ -91,7 +91,7 @@ window.KODIO_LANG.fr = {
     "Web app të personalizuara": "Applications web sur mesure",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. Tous droits réservés.",
     "Emri *": "Nom *",
-    "Kompania / Biznesi (opsionale)": "Entreprise / Activité (facultatif)",
+    "Kompania (opsionale)": "Entreprise (facultatif)",
     "Telefoni *": "Téléphone *",
     "Çfarë të duhet të ndërtohet? *": "Que faut-il construire ? *",
     "Dyqan online (e-commerce)": "Boutique en ligne (e-commerce)",
@@ -168,8 +168,8 @@ window.KODIO_LANG.fr = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "Mémorisent la langue et le thème (clair/sombre) que vous choisissez.",
     Statistika: "Statistiques",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "Nous aident à comprendre, de façon anonyme, comment le site est utilisé. Non utilisés actuellement.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "Nous comptons les visites de façon anonyme et sans cookies (Cloudflare). Les cookies de statistiques ne sont pas utilisés actuellement.",
     Marketing: "Marketing",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "Pour la publicité et la mesure des campagnes. Non utilisés actuellement.",
@@ -340,5 +340,17 @@ window.KODIO_LANG.fr = {
     Email: "Email",
     "Email *": "Email *",
     "Më shtyp": "Touche-moi",
+    "Shiko projektin ↗": "Voir le projet ↗",
+    "Hap menunë": "Ouvrir le menu",
+    Mbyll: "Fermer",
+    Lart: "Haut de page",
+    Mbrapa: "Précédent",
+    Para: "Suivant",
+    "Luaj ose pusho": "Lecture ou pause",
+    "Globi që rrotullohet": "Globe en rotation",
+    Menuja: "Menu",
+    "Tema e errët / Dark mode": "Mode sombre",
+    Faqe: "Pages",
+    Demo: "Démo",
   },
 };

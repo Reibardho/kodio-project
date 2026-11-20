@@ -21,7 +21,7 @@ window.KODIO_LANGS = [
 
 // Tekstet shqip të titullit, menusë dhe butonave të hero-s (elementet me data-i te index.html)
 window.KODIO_SQ = {
-  title: "Kodio – Web & Software Engineering",
+  title: "Kodio Web Studio – Website për biznese në Shqipëri",
   tr: {
     n1: "Shërbimet",
     n3: "Punët",

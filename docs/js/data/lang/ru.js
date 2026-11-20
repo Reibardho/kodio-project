@@ -27,12 +27,12 @@ window.KODIO_LANG.ru = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "Каждая кнопка, форма и страница проверяется перед сдачей. Без ошибок и сюрпризов.",
     "02 · Ngarkohet shpejt": "02 · Быстро загружается",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "Лёгкий код, оптимизированные изображения и быстрый хостинг — оценка Lighthouse выше 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "Лёгкий код, оптимизированные изображения и быстрый хостинг — сайт быстро открывается даже на телефоне.",
     "03 · Nuk ka nevojë për shpjegim": "03 · Понятно без объяснений",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "Понятный дизайн: посетитель сразу видит, что вы предлагаете и как с вами связаться.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "Ваш сайт открыт 24/7 для клиентов из любой страны. Мы работаем удалённо, с понятной коммуникацией и сдачей в срок, где бы вы ни находились.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "Лендинги, сайты для бизнеса и веб-приложения, которые работают, быстро загружаются и приводят клиентов.",
@@ -68,8 +68,8 @@ window.KODIO_LANG.ru = {
     "Çfarë të shtojmë?": "Что добавим?",
     "Një proces i qartë nga ideja deri në publikim.": "Понятный процесс — от идеи до запуска.",
     "1. Biseda & oferta": "1. Обсуждение и предложение",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "Выслушаем ваши задачи и пришлём предложение в течение 24 часов.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "Выслушаем ваши задачи и пришлём предложение в течение 1–2 дней.",
     "2. Dizajn": "2. Дизайн",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "Покажем макет и доработаем его вместе до начала разработки.",
@@ -90,7 +90,7 @@ window.KODIO_LANG.ru = {
     "Web app të personalizuara": "Веб-приложения под заказ",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. Все права защищены.",
     "Emri *": "Имя *",
-    "Kompania / Biznesi (opsionale)": "Компания / Бизнес (необязательно)",
+    "Kompania (opsionale)": "Компания (необязательно)",
     "Telefoni *": "Телефон *",
     "Çfarë të duhet të ndërtohet? *": "Что нужно создать? *",
     "Dyqan online (e-commerce)": "Интернет-магазин (e-commerce)",
@@ -167,8 +167,8 @@ window.KODIO_LANG.ru = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "Запоминают выбранный язык и тему (светлую/тёмную).",
     Statistika: "Статистика",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "Помогают анонимно понять, как используется сайт. Сейчас не используются.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "Мы считаем посещения анонимно и без cookies (Cloudflare). Статистические cookies сейчас не используются.",
     Marketing: "Маркетинг",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "Для рекламы и оценки кампаний. Сейчас не используются.",
@@ -334,5 +334,17 @@ window.KODIO_LANG.ru = {
     Email: "Email",
     "Email *": "Email *",
     "Më shtyp": "Нажми на меня",
+    "Shiko projektin ↗": "Смотреть проект ↗",
+    "Hap menunë": "Открыть меню",
+    Mbyll: "Закрыть",
+    Lart: "Наверх",
+    Mbrapa: "Назад",
+    Para: "Вперёд",
+    "Luaj ose pusho": "Воспроизвести или приостановить",
+    "Globi që rrotullohet": "Вращающийся глобус",
+    Menuja: "Меню",
+    "Tema e errët / Dark mode": "Тёмная тема",
+    Faqe: "Страницы",
+    Demo: "Демо",
   },
 };

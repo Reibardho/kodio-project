@@ -131,7 +131,11 @@
 }
 @media (max-width: 760px) {
   .fg {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  /* email-i i gjatë (kodiowebstudio@gmail.com) nuk pritet: kalon në rresht të ri pas "@" */
+  .fg a:not(.logo) {
+    overflow-wrap: anywhere;
   }
   .fhero {
     align-items: flex-start;

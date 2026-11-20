@@ -40,10 +40,23 @@
     mtype(next.dataset.url);
   }
 
+  // Kur dritaret e hero-it nuk duken (ke zbritur poshtë), animacionet e tyre ndalen (klasa "off"),
+  // që telefoni të mos punojë kot. Rinisin vetë kur kthehesh lart.
+  var ba = document.querySelector(".ba"),
+    seen = true;
+  if (ba)
+    new IntersectionObserver(
+      function (en) {
+        seen = en[en.length - 1].isIntersecting;
+        ba.classList.toggle("off", !seen);
+      },
+      { rootMargin: "100px 0px" },
+    ).observe(ba);
+
   if (shots.length) {
     show(0);
     setInterval(function () {
-      show((cur + 1) % shots.length);
+      if (seen) show((cur + 1) % shots.length);
     }, 7400);
   }
 

@@ -100,7 +100,7 @@ window.KODIO_PACKS = [
 window.KODIO_CARE = [
   {
     name: "Mirëmbajtje Bazike",
-    price: 50,
+    price: 40,
     desc: "Website-i mbetet i sigurt dhe online.",
     feats: [
       "Përditësime sigurie",
@@ -110,7 +110,7 @@ window.KODIO_CARE = [
   },
   {
     name: "Mirëmbajtje Standard",
-    price: 40,
+    price: 50,
     desc: "Bazike, plus ndryshime të vogla në përmbajtje.",
     feats: ["Gjithçka te Bazike", "Ndryshime të vogla përmbajtjeje (tekste, foto)"],
   },

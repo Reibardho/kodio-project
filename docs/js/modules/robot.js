@@ -36,16 +36,31 @@
       e.clientX < r.right + 50 &&
       e.clientY > r.top - 30 &&
       e.clientY < r.bottom + 30
-    )
+    ) {
       fact = true;
+      wake();
+    }
   });
 
   bots.addEventListener("pointerleave", function () {
     fact = false;
   });
 
+  // Animacioni punon vetëm kur roboti duket dhe po lëviz; kur qëndron në vend, ndalet (kursen baterinë)
+  var raf = 0,
+    vis = true;
+  function wake() {
+    if (raf || !vis) return;
+    flt = performance.now();
+    raf = requestAnimationFrame(ftick);
+  }
+  new IntersectionObserver(function (en) {
+    vis = en[en.length - 1].isIntersecting;
+    wake();
+  }).observe(fb);
+
   function ftick(t) {
-    requestAnimationFrame(ftick);
+    raf = 0;
     var dt = Math.min(0.05, (t - flt) / 1000) || 0.016;
     flt = t;
     var on = !ffz && (fact || t < funtil),
@@ -56,6 +71,7 @@
     fpv = (nx - fpx) / Math.max(dt, 0.001);
     fpx = nx;
     if (!on && !ffz && Math.abs(fpx) < 1) fph = 0;
+    if (!on && !ffz && Math.abs(fpx) < 0.3 && Math.abs(fpv) < 3) fpx = fpv = 0; // ka mbërritur në qendër
     // shkruaj stilet vetëm kur ndryshojnë (përndryshe shfletuesi rillogarit faqen në çdo frame)
     var tr = "translateX(" + fpx.toFixed(1) + "px)",
       ro = K.clamp(fpv * 0.035, -6, 6).toFixed(2) + "deg";
@@ -63,9 +79,9 @@
     if (ro !== lastRo) fi.style.rotate = lastRo = ro;
     if (Math.abs(fpv) > 20) fi.classList.toggle("flip", fpv < 0);
     fb.classList.toggle("mv", on);
+    var still = !on && Math.abs(fpv) < 0.5 && (ffz || fpx === 0); // në qendër ose i ngrirë (zemrat)
+    if (vis && !still) raf = requestAnimationFrame(ftick);
   }
-
-  requestAnimationFrame(ftick);
 
   function funlove() {
     clearTimeout(fto);
@@ -77,6 +93,7 @@
     fb.querySelectorAll(".fh").forEach(function (x) {
       x.remove();
     });
+    wake();
   }
 
   function flove() {
@@ -136,6 +153,7 @@
     funtil = performance.now() + 4500;
     tapped();
     flove();
+    wake();
   });
 
   fb.addEventListener("keydown", function (e) {

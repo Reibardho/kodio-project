@@ -27,12 +27,12 @@ window.KODIO_LANG.en = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "Every button, form and page is tested before delivery. No bugs, no surprises.",
     "02 · Ngarkohet shpejt": "02 · Loads fast",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "Lightweight code, optimized images and fast hosting for Lighthouse scores above 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "Lightweight code, optimized images and fast hosting, so the site opens quickly even on a phone.",
     "03 · Nuk ka nevojë për shpjegim": "03 · Needs no explaining",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "Clear design where visitors instantly understand what you offer and how to contact you.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "Your website is open 24/7 to customers from anywhere. We work remotely, with clear communication and on-time delivery, wherever you are.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "Landing pages, business websites and web apps that work, load fast and bring in customers.",
@@ -68,8 +68,8 @@ window.KODIO_LANG.en = {
     "Çfarë të shtojmë?": "What should we add?",
     "Një proces i qartë nga ideja deri në publikim.": "A clear process from idea to launch.",
     "1. Biseda & oferta": "1. Chat & quote",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "We listen to your needs and send a quote within 24 hours.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "We listen to your needs and send a quote within 1–2 days.",
     "2. Dizajn": "2. Design",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "We show you the sketch and refine it together before coding.",
@@ -90,7 +90,7 @@ window.KODIO_LANG.en = {
     "Web app të personalizuara": "Custom web apps",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. All rights reserved.",
     "Emri *": "Name *",
-    "Kompania / Biznesi (opsionale)": "Company / Business (optional)",
+    "Kompania (opsionale)": "Company (optional)",
     "Telefoni *": "Phone *",
     "Çfarë të duhet të ndërtohet? *": "What do you need built? *",
     "Dyqan online (e-commerce)": "Online store (e-commerce)",
@@ -167,8 +167,8 @@ window.KODIO_LANG.en = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "Remember the language and theme (light/dark) you choose.",
     Statistika: "Statistics",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "Help us understand, anonymously, how the site is used. Currently not in use.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "We count visits anonymously and without cookies (Cloudflare). Statistics cookies are currently not used.",
     Marketing: "Marketing",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "For ads and campaign measurement. Currently not in use.",
@@ -333,5 +333,17 @@ window.KODIO_LANG.en = {
     Email: "Email",
     "Email *": "Email *",
     "Më shtyp": "Tap me",
+    "Shiko projektin ↗": "View project ↗",
+    "Hap menunë": "Open menu",
+    Mbyll: "Close",
+    Lart: "Back to top",
+    Mbrapa: "Previous",
+    Para: "Next",
+    "Luaj ose pusho": "Play or pause",
+    "Globi që rrotullohet": "Rotating globe",
+    Menuja: "Menu",
+    "Tema e errët / Dark mode": "Dark mode",
+    Faqe: "Pages",
+    Demo: "Demo",
   },
 };

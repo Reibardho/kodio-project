@@ -32,6 +32,12 @@
   outline: 0;
   will-change: transform;
 }
+/* kornizë kur roboti zgjidhet me tastierë (Tab), jo me maus/prekje */
+#fbot:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 6px;
+  border-radius: 18px;
+}
 /* njoftimi "Më shtyp" sipër robotit (zhduket pas prekjes së parë) */
 #fbot .fhint {
   position: absolute;

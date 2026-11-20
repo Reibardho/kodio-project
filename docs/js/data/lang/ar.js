@@ -27,12 +27,12 @@ window.KODIO_LANG.ar = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "نختبر كل زر ونموذج وصفحة قبل التسليم. لا أخطاء ولا مفاجآت.",
     "02 · Ngarkohet shpejt": "02 · تحميل سريع",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "كود خفيف وصور محسّنة واستضافة سريعة لنتائج Lighthouse أعلى من 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "كود خفيف وصور محسّنة واستضافة سريعة، ليفتح الموقع بسرعة حتى على الهاتف.",
     "03 · Nuk ka nevojë për shpjegim": "03 · لا يحتاج إلى شرح",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "تصميم واضح يفهم فيه الزائر فورًا ما تقدّمه وكيف يتواصل معك.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "موقعك مفتوح على مدار الساعة 24/7 للعملاء من أي مكان. نعمل عن بُعد بتواصل واضح وتسليم في الموعد، أينما كنت.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "صفحات هبوط ومواقع للشركات وتطبيقات ويب تعمل بكفاءة وتُحمّل بسرعة وتجلب العملاء.",
@@ -68,8 +68,8 @@ window.KODIO_LANG.ar = {
     "Çfarë të shtojmë?": "ماذا نضيف؟",
     "Një proces i qartë nga ideja deri në publikim.": "خطوات واضحة من الفكرة إلى الإطلاق.",
     "1. Biseda & oferta": "1. حديث وعرض سعر",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "نستمع إلى احتياجاتك ونرسل عرض سعر خلال 24 ساعة.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "نستمع إلى احتياجاتك ونرسل عرض سعر خلال يوم إلى يومين.",
     "2. Dizajn": "2. التصميم",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "نعرض عليك المسودة ونعدّلها معًا قبل البرمجة.",
@@ -88,7 +88,7 @@ window.KODIO_LANG.ar = {
     "Web app të personalizuara": "تطبيقات ويب مخصّصة",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. جميع الحقوق محفوظة.",
     "Emri *": "الاسم *",
-    "Kompania / Biznesi (opsionale)": "الشركة / النشاط التجاري (اختياري)",
+    "Kompania (opsionale)": "الشركة (اختياري)",
     "Telefoni *": "الهاتف *",
     "Çfarë të duhet të ndërtohet? *": "ماذا تحتاج أن نبني لك؟ *",
     "Dyqan online (e-commerce)": "متجر إلكتروني (تجارة إلكترونية)",
@@ -165,8 +165,8 @@ window.KODIO_LANG.ar = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "تتذكّر اللغة والمظهر (فاتح/داكن) الذي تختاره.",
     Statistika: "الإحصاءات",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "تساعدنا على فهم كيفية استخدام الموقع بشكل مجهول الهوية. غير مستخدمة حاليًا.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "نحصي الزيارات بشكل مجهول ودون ملفات تعريف الارتباط (Cloudflare). لا نستخدم حاليًا ملفات تعريف الارتباط الإحصائية.",
     Marketing: "التسويق",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "للإعلانات وقياس الحملات. غير مستخدمة حاليًا.",
@@ -330,5 +330,17 @@ window.KODIO_LANG.ar = {
     Email: "البريد الإلكتروني",
     "Email *": "البريد الإلكتروني *",
     "Më shtyp": "اضغط عليّ",
+    "Shiko projektin ↗": "عرض المشروع ↗",
+    "Hap menunë": "افتح القائمة",
+    Mbyll: "إغلاق",
+    Lart: "إلى الأعلى",
+    Mbrapa: "السابق",
+    Para: "التالي",
+    "Luaj ose pusho": "تشغيل أو إيقاف مؤقت",
+    "Globi që rrotullohet": "كرة أرضية دوّارة",
+    Menuja: "القائمة",
+    "Tema e errët / Dark mode": "الوضع الداكن",
+    Faqe: "الصفحات",
+    Demo: "عرض تجريبي",
   },
 };

@@ -53,6 +53,8 @@
     var s = SITES[ci];
     var lk = $("cvl");
     lk.href = s.link || "#";
+    // me link të vërtetë: "Website live"; pa link: hapet parapamja brenda faqes
+    lk.textContent = K.L(s.link ? "Website live ↗" : "Shiko projektin ↗");
     if (s.link) {
       lk.target = "_blank";
       lk.rel = "noopener";
@@ -84,11 +86,17 @@
     box.style.minHeight = max + "px";
   }
 
+  // karuseli ndërrohet vetë vetëm kur duket në ekran (përndryshe telefoni punon kot)
+  var shown = false;
+  new IntersectionObserver(function (en) {
+    shown = en[en.length - 1].isIntersecting;
+  }).observe(cs);
+
   function cplay() {
     clearInterval(ctm);
     if (playing)
       ctm = setInterval(function () {
-        cgo(ci + 1);
+        if (shown) cgo(ci + 1);
       }, 5000);
     $("cpp").textContent = playing ? "❚❚" : "▶";
   }

@@ -27,12 +27,12 @@ window.KODIO_LANG.hi = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "डिलीवरी से पहले हर बटन, फ़ॉर्म और पेज की जाँच होती है। न कोई गड़बड़ी, न कोई सरप्राइज़।",
     "02 · Ngarkohet shpejt": "02 · तेज़ी से लोड होती है",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "हल्का कोड, ऑप्टिमाइज़्ड इमेज और तेज़ होस्टिंग, जिससे Lighthouse स्कोर 95 से ऊपर।",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "हल्का कोड, ऑप्टिमाइज़ की गई इमेज और तेज़ होस्टिंग, ताकि साइट फ़ोन पर भी जल्दी खुले।",
     "03 · Nuk ka nevojë për shpjegim": "03 · समझाने की ज़रूरत नहीं",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "साफ़ डिज़ाइन, जिसमें विज़िटर तुरंत समझ जाता है कि आप क्या देते हैं और आपसे कैसे संपर्क करें।",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "आपकी वेबसाइट दुनिया भर के ग्राहकों के लिए 24/7 खुली रहती है। हम रिमोट काम करते हैं, साफ़ बातचीत और समय पर डिलीवरी के साथ, आप जहाँ भी हों।",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "लैंडिंग पेज, बिज़नेस वेबसाइट और वेब ऐप जो काम करते हैं, तेज़ी से लोड होते हैं और ग्राहक लाते हैं।",
@@ -68,8 +68,8 @@ window.KODIO_LANG.hi = {
     "Çfarë të shtojmë?": "क्या जोड़ें?",
     "Një proces i qartë nga ideja deri në publikim.": "आइडिया से लॉन्च तक एक साफ़ प्रक्रिया।",
     "1. Biseda & oferta": "1. बातचीत और कोटेशन",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "हम आपकी ज़रूरतें सुनते हैं और 24 घंटे के भीतर कोटेशन भेजते हैं।",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "हम आपकी ज़रूरतें सुनते हैं और 1–2 दिनों के भीतर कोटेशन भेजते हैं।",
     "2. Dizajn": "2. डिज़ाइन",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "कोडिंग से पहले हम आपको स्केच दिखाते हैं और साथ मिलकर उसे बेहतर बनाते हैं।",
@@ -90,7 +90,7 @@ window.KODIO_LANG.hi = {
     "Web app të personalizuara": "कस्टम वेब ऐप",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. सर्वाधिकार सुरक्षित।",
     "Emri *": "नाम *",
-    "Kompania / Biznesi (opsionale)": "कंपनी / बिज़नेस (वैकल्पिक)",
+    "Kompania (opsionale)": "कंपनी (वैकल्पिक)",
     "Telefoni *": "फ़ोन *",
     "Çfarë të duhet të ndërtohet? *": "आपको क्या बनवाना है? *",
     "Dyqan online (e-commerce)": "ऑनलाइन स्टोर (ई-कॉमर्स)",
@@ -167,8 +167,8 @@ window.KODIO_LANG.hi = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "आपकी चुनी हुई भाषा और थीम (लाइट/डार्क) याद रखती हैं।",
     Statistika: "आँकड़े",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "गुमनाम तरीके से यह समझने में मदद करती हैं कि साइट कैसे इस्तेमाल होती है। अभी उपयोग में नहीं।",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "हम विज़िट को गुमनाम रूप से और बिना कुकीज़ के गिनते हैं (Cloudflare)। सांख्यिकी कुकीज़ अभी उपयोग में नहीं हैं।",
     Marketing: "मार्केटिंग",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "विज्ञापनों और कैंपेन मापने के लिए। अभी उपयोग में नहीं।",
@@ -224,7 +224,8 @@ window.KODIO_LANG.hi = {
     "Website i plotë për biznesin, me faqe të veçanta për çdo pjesë.":
       "आपके बिज़नेस के लिए पूरी वेबसाइट, हर हिस्से के लिए अलग पेज के साथ।",
     "Gjithçka te landing page": "लैंडिंग पेज की सारी सुविधाएँ",
-    "Faqe si Rreth nesh, Shërbimet, Galeria, Kontakt": "हमारे बारे में, सेवाएँ, गैलरी, संपर्क जैसे पेज",
+    "Faqe si Rreth nesh, Shërbimet, Galeria, Kontakt":
+      "हमारे बारे में, सेवाएँ, गैलरी, संपर्क जैसे पेज",
     "Menu e qartë dhe navigim i thjeshtë": "साफ़ मेनू और आसान नेविगेशन",
     "Harta Google dhe orari i punës": "Google मैप्स और खुलने का समय",
     "SEO për çdo faqe": "हर पेज के लिए SEO",
@@ -333,5 +334,17 @@ window.KODIO_LANG.hi = {
     Email: "ईमेल",
     "Email *": "ईमेल *",
     "Më shtyp": "मुझे दबाएँ",
+    "Shiko projektin ↗": "प्रोजेक्ट देखें ↗",
+    "Hap menunë": "मेनू खोलें",
+    Mbyll: "बंद करें",
+    Lart: "ऊपर जाएँ",
+    Mbrapa: "पिछला",
+    Para: "अगला",
+    "Luaj ose pusho": "चलाएँ या रोकें",
+    "Globi që rrotullohet": "घूमता हुआ ग्लोब",
+    Menuja: "मेनू",
+    "Tema e errët / Dark mode": "डार्क मोड",
+    Faqe: "पेज",
+    Demo: "डेमो",
   },
 };

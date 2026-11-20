@@ -27,12 +27,12 @@ window.KODIO_LANG.pt = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "Cada botão, formulário e página é testado antes da entrega. Sem erros, sem surpresas.",
     "02 · Ngarkohet shpejt": "02 · Carrega rápido",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "Código leve, imagens otimizadas e hospedagem rápida para notas do Lighthouse acima de 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "Código leve, imagens otimizadas e hospedagem rápida, para o site abrir rápido até no celular.",
     "03 · Nuk ka nevojë për shpjegim": "03 · Dispensa explicações",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "Um design claro, em que o visitante entende na hora o que você oferece e como entrar em contato.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "Seu site fica aberto 24/7 para clientes de qualquer lugar. Trabalhamos remotamente, com comunicação clara e entrega no prazo, onde quer que você esteja.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "Landing pages, sites empresariais e aplicações web que funcionam, carregam rápido e trazem clientes.",
@@ -68,8 +68,8 @@ window.KODIO_LANG.pt = {
     "Çfarë të shtojmë?": "O que vamos adicionar?",
     "Një proces i qartë nga ideja deri në publikim.": "Um processo claro, da ideia à publicação.",
     "1. Biseda & oferta": "1. Conversa e orçamento",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "Ouvimos suas necessidades e enviamos um orçamento em até 24 horas.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "Ouvimos suas necessidades e enviamos um orçamento em até 1–2 dias.",
     "2. Dizajn": "2. Design",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "Mostramos o rascunho e ajustamos juntos antes de programar.",
@@ -90,7 +90,7 @@ window.KODIO_LANG.pt = {
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.":
       "© 2026 Kodio. Todos os direitos reservados.",
     "Emri *": "Nome *",
-    "Kompania / Biznesi (opsionale)": "Empresa / Negócio (opcional)",
+    "Kompania (opsionale)": "Empresa (opcional)",
     "Telefoni *": "Telefone *",
     "Çfarë të duhet të ndërtohet? *": "O que você precisa construir? *",
     "Dyqan online (e-commerce)": "Loja online (e-commerce)",
@@ -167,8 +167,8 @@ window.KODIO_LANG.pt = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "Lembram o idioma e o tema (claro/escuro) que você escolher.",
     Statistika: "Estatísticas",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "Ajudam a entender, de forma anônima, como o site é usado. No momento não são usados.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "Contamos as visitas de forma anônima e sem cookies (Cloudflare). No momento não usamos cookies de estatísticas.",
     Marketing: "Marketing",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "Para anúncios e medição de campanhas. No momento não são usados.",
@@ -336,5 +336,17 @@ window.KODIO_LANG.pt = {
     Email: "Email",
     "Email *": "Email *",
     "Më shtyp": "Toque em mim",
+    "Shiko projektin ↗": "Ver projeto ↗",
+    "Hap menunë": "Abrir menu",
+    Mbyll: "Fechar",
+    Lart: "Voltar ao topo",
+    Mbrapa: "Anterior",
+    Para: "Próximo",
+    "Luaj ose pusho": "Reproduzir ou pausar",
+    "Globi që rrotullohet": "Globo girando",
+    Menuja: "Menu",
+    "Tema e errët / Dark mode": "Modo escuro",
+    Faqe: "Páginas",
+    Demo: "Demo",
   },
 };

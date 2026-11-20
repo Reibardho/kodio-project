@@ -27,12 +27,12 @@ window.KODIO_LANG.de = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "Jeder Button, jedes Formular und jede Seite wird vor der Übergabe getestet. Keine Fehler, keine Überraschungen.",
     "02 · Ngarkohet shpejt": "02 · Lädt schnell",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "Schlanker Code, optimierte Bilder und schnelles Hosting für Lighthouse-Werte über 95.",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "Schlanker Code, optimierte Bilder und schnelles Hosting, damit die Seite auch auf dem Handy schnell lädt.",
     "03 · Nuk ka nevojë për shpjegim": "03 · Erklärt sich von selbst",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "Ein klares Design, bei dem Besucher sofort verstehen, was du anbietest und wie sie dich erreichen.",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "Deine Website ist rund um die Uhr für Kunden aus aller Welt geöffnet. Wir arbeiten remote, mit klarer Kommunikation und pünktlicher Lieferung – egal, wo du bist.",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "Landingpages, Unternehmenswebsites und Web-Apps, die funktionieren, schnell laden und Kunden bringen.",
@@ -69,8 +69,8 @@ window.KODIO_LANG.de = {
     "Një proces i qartë nga ideja deri në publikim.":
       "Ein klarer Ablauf von der Idee bis zum Livegang.",
     "1. Biseda & oferta": "1. Gespräch & Angebot",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "Wir hören uns deine Anforderungen an und senden innerhalb von 24 Stunden ein Angebot.",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "Wir hören uns deine Anforderungen an und senden innerhalb von 1–2 Tagen ein Angebot.",
     "2. Dizajn": "2. Design",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "Wir zeigen dir den Entwurf und verfeinern ihn gemeinsam, bevor wir programmieren.",
@@ -91,7 +91,7 @@ window.KODIO_LANG.de = {
     "Web app të personalizuara": "Individuelle Web-Apps",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio. Alle Rechte vorbehalten.",
     "Emri *": "Name *",
-    "Kompania / Biznesi (opsionale)": "Firma / Unternehmen (optional)",
+    "Kompania (opsionale)": "Firma (optional)",
     "Telefoni *": "Telefon *",
     "Çfarë të duhet të ndërtohet? *": "Was sollen wir für dich bauen? *",
     "Dyqan online (e-commerce)": "Onlineshop (E-Commerce)",
@@ -168,8 +168,8 @@ window.KODIO_LANG.de = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "Merken sich die Sprache und das Design (hell/dunkel), das du wählst.",
     Statistika: "Statistiken",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "Helfen uns, anonym zu verstehen, wie die Seite genutzt wird. Derzeit nicht im Einsatz.",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "Wir zählen Besuche anonym und ohne Cookies (Cloudflare). Statistik-Cookies werden derzeit nicht verwendet.",
     Marketing: "Marketing",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "Für Werbung und Kampagnenmessung. Derzeit nicht im Einsatz.",
@@ -336,5 +336,17 @@ window.KODIO_LANG.de = {
     Email: "E-Mail",
     "Email *": "E-Mail *",
     "Më shtyp": "Tipp mich an",
+    "Shiko projektin ↗": "Projekt ansehen ↗",
+    "Hap menunë": "Menü öffnen",
+    Mbyll: "Schließen",
+    Lart: "Nach oben",
+    Mbrapa: "Zurück",
+    Para: "Weiter",
+    "Luaj ose pusho": "Abspielen oder pausieren",
+    "Globi që rrotullohet": "Rotierender Globus",
+    Menuja: "Menü",
+    "Tema e errët / Dark mode": "Dunkelmodus",
+    Faqe: "Seiten",
+    Demo: "Demo",
   },
 };

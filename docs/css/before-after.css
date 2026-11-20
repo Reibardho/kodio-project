@@ -2,6 +2,13 @@
    djathtas mockup-i i ri (css/mockup.css). Të dyja anohen pas maus-it (--mx, --my nga js/modules/mockup.js).
    Animacioni është vetëm CSS: 9 sekonda, përsëritet. */
 
+/* Kur dritaret nuk duken në ekran, të gjitha animacionet e tyre pushojnë (js/modules/mockup.js) */
+.ba.off,
+.ba.off *,
+.ba.off *::before,
+.ba.off *::after {
+  animation-play-state: paused !important;
+}
 .ba {
   --mx: 0;
   --my: 0;

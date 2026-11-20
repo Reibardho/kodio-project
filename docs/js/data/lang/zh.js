@@ -27,12 +27,12 @@ window.KODIO_LANG.zh = {
     "Çdo buton, formular dhe faqe testohet para dorëzimit. Pa gabime, pa surpriza.":
       "每个按钮、表单和页面在交付前都经过测试。没有错误，没有意外。",
     "02 · Ngarkohet shpejt": "02 · 加载飞快",
-    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, për rezultate Lighthouse mbi 95.":
-      "轻量代码、优化图片和高速主机，Lighthouse 评分超过 95。",
+    "Kod i lehtë, imazhe të optimizuara dhe hosting i shpejtë, që faqja të hapet shpejt edhe në telefon.":
+      "轻量代码、优化图片和快速主机，让网站在手机上也能快速打开。",
     "03 · Nuk ka nevojë për shpjegim": "03 · 一看就懂",
     "Dizajn i qartë ku vizitori kupton menjëherë çfarë ofron dhe si të të kontaktojë.":
       "清晰的设计，让访客立刻明白你提供什么、如何联系你。",
-    "Websiti yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
+    "Website-i yt është i hapur 24/7 për klientë nga çdo vend. Punojmë në distancë, me komunikim të qartë dhe dorëzim në kohë, pavarësisht ku je.":
       "你的网站全天候 24/7 向世界各地的客户开放。我们远程工作，沟通清晰，按时交付，无论你身在何处。",
     "Landing page, website biznesi dhe aplikacione web që funksionojnë, ngarkohen shpejt dhe sjellin klientë.":
       "落地页、企业网站和网络应用：运行可靠、加载迅速、带来客户。",
@@ -68,8 +68,8 @@ window.KODIO_LANG.zh = {
     "Çfarë të shtojmë?": "需要添加什么？",
     "Një proces i qartë nga ideja deri në publikim.": "从想法到上线，流程清晰。",
     "1. Biseda & oferta": "1. 沟通与报价",
-    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 24 orësh.":
-      "了解你的需求，并在 24 小时内发送报价。",
+    "Dëgjojmë nevojat e tua dhe japim ofertë brenda 1–2 ditësh.":
+      "了解你的需求，并在 1–2 天内发送报价。",
     "2. Dizajn": "2. 设计",
     "Ta tregojmë skicën dhe e rregullojmë bashkë para kodimit.":
       "先给你看草图，编码前一起调整完善。",
@@ -87,7 +87,7 @@ window.KODIO_LANG.zh = {
     "Web app të personalizuara": "定制网络应用",
     "© 2026 Kodio. Të gjitha të drejtat e rezervuara.": "© 2026 Kodio。保留所有权利。",
     "Emri *": "姓名 *",
-    "Kompania / Biznesi (opsionale)": "公司 / 商家（选填）",
+    "Kompania (opsionale)": "公司（选填）",
     "Telefoni *": "电话 *",
     "Çfarë të duhet të ndërtohet? *": "你需要做什么？ *",
     "Dyqan online (e-commerce)": "网上商店（电商）",
@@ -164,8 +164,8 @@ window.KODIO_LANG.zh = {
     "Mbajnë mend gjuhën dhe temën (e çelët/e errët) që zgjedh.":
       "记住你选择的语言和主题（浅色/深色）。",
     Statistika: "统计",
-    "Na ndihmojnë të kuptojmë, në mënyrë anonime, si përdoret faqja. Aktualisht nuk përdoren.":
-      "帮助我们匿名了解网站的使用情况。目前未使用。",
+    "Numërojmë vizitat në mënyrë anonime dhe pa cookies (Cloudflare). Cookies statistikash aktualisht nuk përdoren.":
+      "我们以匿名且不使用 cookies 的方式统计访问量（Cloudflare）。目前不使用统计类 cookies。",
     Marketing: "营销",
     "Për reklama dhe matje fushatash. Aktualisht nuk përdoren.":
       "用于广告和活动效果衡量。目前未使用。",
@@ -329,5 +329,17 @@ window.KODIO_LANG.zh = {
     Email: "邮箱",
     "Email *": "邮箱 *",
     "Më shtyp": "点我",
+    "Shiko projektin ↗": "查看项目 ↗",
+    "Hap menunë": "打开菜单",
+    Mbyll: "关闭",
+    Lart: "返回顶部",
+    Mbrapa: "上一个",
+    Para: "下一个",
+    "Luaj ose pusho": "播放或暂停",
+    "Globi që rrotullohet": "旋转的地球",
+    Menuja: "菜单",
+    "Tema e errët / Dark mode": "深色模式",
+    Faqe: "页数",
+    Demo: "演示",
   },
 };

@@ -13,7 +13,7 @@
     started = false;
   // Zonat që rindërtohen nga JS ose nuk përkthehen (lista e gjuhëve, logot në svg)
   var SKIP =
-    "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#murl,#lgm,svg,.fmark,.cdot";
+    "[data-i],#cs,#pr,#etype,#eext,#rc,#vc,#vcap,#ct,#ctt,#cdd,#ctk,#cvl,#murl,#lgm,svg,.fmark,.cdot";
 
   // Hapësirat dhe rreshtat e rinj bëhen një hapësirë, që paragrafët e ndarë në disa rreshta
   // te index.html të gjejnë përkthimin.
@@ -91,6 +91,11 @@
     document.querySelectorAll("[placeholder]").forEach(function (el) {
       if (!el.dataset.ph) el.dataset.ph = el.getAttribute("placeholder");
       el.setAttribute("placeholder", K.L(el.dataset.ph));
+    });
+    // Përshkrimet për lexuesit e ekranit (aria-label), p.sh. "Hap menunë", "Mbyll"
+    document.querySelectorAll("[aria-label]").forEach(function (el) {
+      if (!el.dataset.al) el.dataset.al = el.getAttribute("aria-label");
+      el.setAttribute("aria-label", K.L(el.dataset.al));
     });
     K.langHooks.forEach(function (fn) {
       fn(l);
