@@ -14,6 +14,7 @@ window.KODIO_LANGS = [
   { code: "it", name: "Italiano", short: "IT" },
   { code: "pt", name: "Português", short: "PT" },
   { code: "ru", name: "Русский", short: "RU" },
+  { code: "tr", name: "Türkçe", short: "TR" },
   { code: "zh", name: "中文", short: "ZH" },
   { code: "hi", name: "हिन्दी", short: "HI" },
   { code: "ar", name: "العربية", short: "AR", dir: "rtl" },

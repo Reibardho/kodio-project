@@ -32,7 +32,7 @@ kodio/
 │   │   ├── pricing.js    ← çmimet: NJË burim për kartat e paketave dhe për vlerësuesin
 │   │   ├── sites.js      ← projektet në karusel
 │   │   ├── languages.js  ← lista e gjuhëve në menunë 🌐 dhe tekstet shqip të hero-s (ngarkohet në <head>)
-│   │   ├── lang/         ← një skedar për çdo gjuhë: en, de, es, fr, it, pt, ru, zh, hi, ar
+│   │   ├── lang/         ← një skedar për çdo gjuhë: en, de, es, fr, it, pt, ru, tr, zh, hi, ar
 │   │   └── world.js      ← hartat e globit
 │   ├── core/             ← kernel i përbashkët (namespace `Kodio`)
 │   │   ├── kodio.js  i18n.js  whatsapp.js
@@ -72,7 +72,7 @@ kodio/
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Njoftimi "Më shtyp" sipër robotit | teksti: `index.html` (`.fhint`) + përkthimi te `js/data/lang/*.js`; pamja: `css/robot.css` |
-| Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
+| Përkthimet (12 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
 | "kodio" prej kubesh 3D në fund (kubet bashkohen ngadalë sa më poshtë shkon me scroll dhe shpërndahen kur ngjitesh lart; klikimi i shtyn kubet para-mbrapa) | ngjyrat: `css/footer.css` (`.fmark.vox`, `--f3-*`); lëvizja: `js/modules/wordmark.js` lart te "rregullime" (`STAGGER` = sa të ndara vijnë copat, `FOLLOW` = sa butë ndjekin scroll-in, `SPRING`, `DAMP` = lëkundja pas klikimit) |
 | Pika e kuqe e maus-it (madhësia, ngjyra, unaza mbi butona) | `css/cursor.css` dhe `js/modules/cursor.js` |
 | Globi (madhësia në telefon) | `css/globe.css` |
