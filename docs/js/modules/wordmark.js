@@ -1,8 +1,8 @@
 /* "kodio" në fund të faqes, prej kubesh të vegjël 3D (canvas brenda .fmark).
-   - Kur fjala del në ekran: copat nisin të shpërndara si yje dhe bashkohen ngadalë në fjalë.
-   - Maus-i sipër: copat afër shigjetës shtyhen mënjanë dhe rikthehen me lëkundje.
-   - Klikim (ose prekje në telefon): një valë i shpërthen copat përreth, pastaj kthehen në vend.
-   - Kur largohesh nga fundi, copat shpërndahen sërish, që efekti të shihet përsëri.
+   - Bashkimi ndjek scroll-in: sa më poshtë zbret, aq më shumë bashkohen yjet; në fund të faqes fjala
+     është e plotë. Kur ngjitesh lart, shpërndahen sërish.
+   - Maus-i sipër: kubet qëndrojnë në vend (vetëm fjala kthehet lehtë drejt shigjetës).
+   - Klikim (ose prekje në telefon): një valë i shtyn kubet mbrapa e para (vetëm në thellësi), pastaj ndalen.
    Ngjyrat: css/footer.css (--f3-face-a/b = balli, --f3-near/far = anët e kuqe). */
 (function () {
   var K = window.Kodio,
@@ -13,10 +13,10 @@
   if (!c) return;
 
   // ---- rregullime ----
-  var ASSEMBLE = 2.6, // sekonda për çdo copë (sa ngadalë bashkohen)
-    STAGGER = 1.2, // vonesa maksimale mes copave (sekonda)
-    SPRING = 55, // sa fort kthehen copat në vend
-    DAMP = 7.5, // frenimi (më pak = më shumë lëkundje)
+  var STAGGER = 0.4, // sa e ndarë është radha e copave gjatë scroll-it (0 = të gjitha njëherësh)
+    FOLLOW = 0.1, // sa butë ndjek scroll-in (më pak = më avash)
+    SPRING = 55, // sa fort kthehen kubet në vend pas klikimit
+    DAMP = 4.2, // frenimi (më pak = më shumë lëvizje para-mbrapa)
     D = 1100; // distanca e kamerës (perspektiva)
 
   var word = m.textContent.trim(),
@@ -26,10 +26,9 @@
     OX = 0,
     OY = 0,
     half = 4,
-    R_HOVER = 90, // rrezja ku maus-i i shtyn copat (px)
-    R_CLICK = 240, // rrezja e valës së klikimit (px)
-    state = K.reduce ? "done" : "far", // far → (del në ekran) → join → done
-    t0 = 0,
+    R_CLICK = 300, // rrezja e valës së klikimit (px)
+    p = K.reduce ? 1 : 0, // sa e bashkuar duhet të jetë (sipas scroll-it), 0..1
+    pp = p, // sa e bashkuar është tani (ndjek p butë)
     last = 0,
     rx = 6,
     ry = -8,
@@ -131,8 +130,7 @@
       TW = cols * cell,
       TH = rows * cell;
     half = cell * 0.42;
-    R_HOVER = cell * 7;
-    R_CLICK = cell * 18;
+    R_CLICK = cell * 22;
 
     // canvas: sa .fmark, plus hapësirë sipër për yjet/copat
     var mw = m.clientWidth,
@@ -177,17 +175,15 @@
           az: az / al,
           ang: (rnd() * 2 - 1) * Math.PI * 2.5,
           sw: (rnd() - 0.5) * 0.9, // sa kthehet në hark gjatë rrugës
-          d: STAGGER * (0.65 * rnd() + 0.35 * (gx / cols)), // vonesa
+          d: STAGGER * (0.65 * rnd() + 0.35 * (gx / cols)), // radha: disa vijnë më herët, disa më vonë
           e: 0,
           bx: 0,
           by: 0,
           bz: 0,
-          ox: 0, // zhvendosja nga maus-i / klikimi
-          oy: 0,
-          oz: 0,
-          vx: 0,
-          vy: 0,
+          oz: 0, // zhvendosja në thellësi nga klikimi
           vz: 0,
+          pz: 0, // shtytja që po vjen me valën
+          pt: 0, // kur arrin vala
         });
       }
     }
@@ -200,8 +196,8 @@
     t = t < 0 ? 0 : t > 1 ? 1 : t;
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
-  function place(v, now) {
-    var e = state === "done" ? 1 : state === "far" ? 0 : ease(((now - t0) / 1000 - v.d) / ASSEMBLE);
+  function place(v) {
+    var e = ease((pp - v.d) / (1 - STAGGER));
     var dx = v.hx - v.sx,
       dy = v.hy - v.sy,
       arc = Math.sin(Math.PI * e) * v.sw; // hark pingul me rrugën
@@ -212,67 +208,39 @@
     return e;
   }
 
-  // ---- fizika: maus-i shtyn, susta kthen ----
-  function physics(dt) {
-    var moving = false,
-      hover = mx !== null && rect && !K.touch,
-      wx = 0,
-      wy = 0;
-    if (hover) {
-      wx = mx - rect.left - OX;
-      wy = my - rect.top - OY;
-      hover =
-        wx > -W / 2 - R_HOVER &&
-        wx < W / 2 + R_HOVER &&
-        wy > -OY - R_HOVER &&
-        wy < H - OY + R_HOVER;
-    }
+  // ---- fizika: kubet lëvizin vetëm para-mbrapa (thellësia), susta i kthen në vend ----
+  function physics(dt, now) {
+    var moving = false;
     for (var i = 0; i < VOX.length; i++) {
-      var v = VOX[i],
-        ax = -SPRING * v.ox - DAMP * v.vx,
-        ay = -SPRING * v.oy - DAMP * v.vy,
-        az = -SPRING * v.oz - DAMP * v.vz;
-      if (hover && v.e > 0.6) {
-        var dx = v.bx + v.ox - wx,
-          dy = v.by + v.oy - wy,
-          d2 = dx * dx + dy * dy;
-        if (d2 < R_HOVER * R_HOVER) {
-          var d = Math.sqrt(d2) || 1,
-            f = 9000 * Math.pow(1 - d / R_HOVER, 2);
-          ax += (dx / d) * f;
-          ay += (dy / d) * f;
-          az += f * 0.5;
+      var v = VOX[i];
+      if (v.pt) {
+        if (now >= v.pt) {
+          v.vz += v.pz; // vala arriti te ky kub
+          v.pt = 0;
         }
+        moving = true;
       }
-      v.vx += ax * dt;
-      v.vy += ay * dt;
-      v.vz += az * dt;
-      v.ox += v.vx * dt;
-      v.oy += v.vy * dt;
+      v.vz += (-SPRING * v.oz - DAMP * v.vz) * dt;
       v.oz += v.vz * dt;
-      // vazhdo vetëm sa kohë diçka lëviz (kur maus-i rri në vend, copat mbeten të shtyra pa rivizatim)
-      if (Math.abs(v.vx) + Math.abs(v.vy) + Math.abs(v.vz) > 2) moving = true;
-      else if (!hover && Math.abs(v.ox) + Math.abs(v.oy) + Math.abs(v.oz) > 0.15) moving = true;
-      else if (!hover) v.ox = v.oy = v.oz = v.vx = v.vy = v.vz = 0;
+      if (Math.abs(v.vz) > 2 || Math.abs(v.oz) > 0.15) moving = true;
+      else v.oz = v.vz = 0;
     }
     return moving;
   }
 
+  // klikim: vala përhapet nga pika e klikimit dhe i shtyn kubet mbrapa; susta i nxjerr para e i kthen
   function shock(cx, cy) {
     if (!rect) return;
     var wx = cx - rect.left - OX,
-      wy = cy - rect.top - OY;
+      wy = cy - rect.top - OY,
+      now = performance.now();
     for (var i = 0; i < VOX.length; i++) {
       var v = VOX[i],
-        dx = v.bx + v.ox - wx,
-        dy = v.by + v.oy - wy,
-        d = Math.sqrt(dx * dx + dy * dy) || 1;
+        d = Math.hypot(v.bx - wx, v.by - wy);
       if (d > R_CLICK) continue;
-      var s = 1 - d / R_CLICK,
-        imp = 1100 * s * (0.7 + (0.6 * ((i * 7919) % 100)) / 100);
-      v.vx += (dx / d) * imp;
-      v.vy += (dy / d) * imp;
-      v.vz += imp * 0.9;
+      var s = 1 - d / R_CLICK;
+      v.pz = -(240 + 950 * s * s); // sa fort (mbrapa, në thellësi)
+      v.pt = now + d * 1.6; // vonesa: vala arrin më vonë te kubet më larg
     }
     kick();
   }
@@ -316,9 +284,9 @@
       v;
     for (i = 0; i < VOX.length; i++) {
       v = VOX[i];
-      minE = Math.min(minE, place(v, now));
-      var x = v.bx + v.ox,
-        y = v.by + v.oy,
+      minE = Math.min(minE, place(v));
+      var x = v.bx,
+        y = v.by,
         z = v.bz + v.oz;
       v.gx = g00 * x + g02 * z;
       v.gy = g10 * x + g11 * y + g12 * z;
@@ -331,8 +299,7 @@
     for (i = 0; i < list.length; i++) {
       v = list[i];
       var e = v.e,
-        push = Math.min(1.4, Math.hypot(v.ox, v.oy, v.oz) * 0.03), // rrotullim kur shtyhet
-        a = v.ang * (1 - e) + push * (v.ang > 0 ? 1 : -1),
+        a = v.ang * (1 - e),
         ca = Math.cos(a),
         sa = Math.sin(a),
         ka = 1 - ca,
@@ -391,8 +358,21 @@
   }
 
   // ---- cikli i animimit (punon vetëm kur duhet) ----
+  // sa e bashkuar: 0 kur zona e yjeve sapo del në ekran, 1 kur arrin në fund të faqes
+  function progress() {
+    if (K.reduce) return 1;
+    var r = cv.getBoundingClientRect(),
+      start = r.top + scrollY - innerHeight * 0.9,
+      end = document.documentElement.scrollHeight - innerHeight;
+    if (end - start < 80) start = end - 80;
+    return K.clamp((scrollY - start) / (end - start), 0, 1);
+  }
+
   function tick(now) {
     raf = 0;
+    p = progress();
+    pp += (p - pp) * FOLLOW;
+    if (Math.abs(p - pp) < 0.002) pp = p;
     var dt = Math.min(0.033, (now - (last || now)) / 1000) || 0.016;
     last = now;
     rect = cv.getBoundingClientRect();
@@ -403,10 +383,9 @@
     }
     rx += (tx - rx) * 0.08;
     ry += (ty - ry) * 0.08;
-    var busy = !K.reduce && state !== "far" && physics(dt);
-    var minE = draw(now);
-    if (state === "join" && minE >= 1) state = "done";
-    if (vis && (state === "join" || busy || Math.abs(tx - rx) + Math.abs(ty - ry) > 0.05)) {
+    var busy = !K.reduce && pp > 0.98 && physics(dt, now);
+    draw(now);
+    if (vis && (pp !== p || busy || Math.abs(tx - rx) + Math.abs(ty - ry) > 0.05)) {
       raf = requestAnimationFrame(tick);
     } else last = 0;
   }
@@ -419,21 +398,10 @@
     function (en) {
       var e = en[en.length - 1];
       vis = e.isIntersecting;
-      if (!K.reduce) {
-        if (e.intersectionRatio >= 0.6 && state === "far") {
-          state = "join";
-          t0 = performance.now();
-        } else if (!e.isIntersecting && state !== "far") {
-          state = "far";
-          VOX.forEach(function (v) {
-            v.ox = v.oy = v.oz = v.vx = v.vy = v.vz = 0;
-          });
-        }
-      }
       kick();
     },
-    { threshold: [0, 0.6, 1] },
-  ).observe(m);
+    { rootMargin: "200px 0px" },
+  ).observe(cv);
 
   addEventListener(
     "pointermove",
@@ -449,7 +417,7 @@
   addEventListener(
     "pointerdown",
     function (e) {
-      if (!vis || K.reduce || state === "far") return;
+      if (!vis || K.reduce || pp < 0.98) return; // vala vetëm kur fjala është e plotë
       var r = cv.getBoundingClientRect();
       if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)
         return;
@@ -478,5 +446,9 @@
   (document.fonts && document.fonts.load
     ? document.fonts.load("800 " + cs.fontSize + " " + cs.fontFamily).catch(function () {})
     : Promise.resolve()
-  ).then(build);
+  ).then(function () {
+    build();
+    p = pp = progress(); // nëse faqja hapet direkt në fund, fjala del menjëherë e plotë
+    draw(performance.now());
+  });
 })();
