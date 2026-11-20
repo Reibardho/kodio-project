@@ -72,7 +72,7 @@ kodio/
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
-| "kodio" prej kubesh 3D në fund (bashkohen kur zbret, kthehen nga maus-i) | ngjyrat: `css/footer.css` (`.fmark.vox`, `--f3-*`); madhësia e kubeve (`fs / 22`), sa shpërndahen (`sx`, `sy`, `sz`) dhe këndet (`* 16` / `* 26`): `js/modules/wordmark.js` |
+| "kodio" prej kubesh 3D në fund (yjet bashkohen kur arrin në fund; maus-i i shtyn; klikimi i shpërthen) | ngjyrat: `css/footer.css` (`.fmark.vox`, `--f3-*`); shpejtësia dhe lëvizja: `js/modules/wordmark.js` lart te "rregullime" (`ASSEMBLE` = sa ngadalë bashkohen, `SPRING`, `DAMP`) |
 | Pika e kuqe e maus-it (madhësia, ngjyra, unaza mbi butona) | `css/cursor.css` dhe `js/modules/cursor.js` |
 | Globi (madhësia në telefon) | `css/globe.css` |
 | Statistikat e vizitorëve (Cloudflare Web Analytics, pa cookies) | kodi `cloudflareinsights` para `</body>` te `index.html`, `privacy.html`, `404.html`; statistikat i sheh te dash.cloudflare.com → Web Analytics |
