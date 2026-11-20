@@ -333,5 +333,6 @@ window.KODIO_LANG.ru = {
     "Founder & Software Engineer": "Основатель и инженер-программист",
     Email: "Email",
     "Email *": "Email *",
+    "Më shtyp": "Нажми на меня",
   },
 };

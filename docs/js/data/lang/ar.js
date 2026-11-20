@@ -329,5 +329,6 @@ window.KODIO_LANG.ar = {
     "Founder & Software Engineer": "المؤسس ومهندس البرمجيات",
     Email: "البريد الإلكتروني",
     "Email *": "البريد الإلكتروني *",
+    "Më shtyp": "اضغط عليّ",
   },
 };

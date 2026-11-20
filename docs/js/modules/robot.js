@@ -117,14 +117,31 @@
     fto = setTimeout(funlove, 7000);
   }
 
+  // Njoftimi "Më shtyp" sipër robotit: zhduket pasi vizitori e prek (dhe nuk del më gjatë kësaj vizite)
+  try {
+    if (sessionStorage.getItem("kodio_bot")) fb.classList.add("tapped");
+  } catch {
+    /* pa sessionStorage */
+  }
+  function tapped() {
+    fb.classList.add("tapped");
+    try {
+      sessionStorage.setItem("kodio_bot", "1");
+    } catch {
+      /* pa sessionStorage */
+    }
+  }
+
   fb.addEventListener("click", function () {
     funtil = performance.now() + 4500;
+    tapped();
     flove();
   });
 
   fb.addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
+      tapped();
       flove();
     }
   });

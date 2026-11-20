@@ -332,5 +332,6 @@ window.KODIO_LANG.hi = {
     "Founder & Software Engineer": "संस्थापक और सॉफ़्टवेयर इंजीनियर",
     Email: "ईमेल",
     "Email *": "ईमेल *",
+    "Më shtyp": "मुझे दबाएँ",
   },
 };

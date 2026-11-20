@@ -328,5 +328,6 @@ window.KODIO_LANG.zh = {
     "Founder & Software Engineer": "创始人兼软件工程师",
     Email: "邮箱",
     "Email *": "邮箱 *",
+    "Më shtyp": "点我",
   },
 };

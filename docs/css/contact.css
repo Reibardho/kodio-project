@@ -147,6 +147,13 @@ a.bc:hover {
     border-color 0.2s,
     box-shadow 0.2s;
 }
+/* në telefon 16px: me më pak, iPhone e zmadhon faqen kur shkruan */
+@media (hover: none), (pointer: coarse) {
+  .kf input,
+  .kf textarea {
+    font-size: 16px;
+  }
+}
 .kf input:focus,
 .kf textarea:focus {
   border-color: var(--text);

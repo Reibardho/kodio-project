@@ -2,7 +2,7 @@
 window.KODIO_CONFIG = {
   // Versioni i skedarëve: ndryshoje (p.sh. në datën e sotme) sa herë publikon ndryshime në CSS/JS,
   // bashkë me ?v=... te index.html dhe privacy.html (VS Code: Ctrl+Shift+H, zëvendëso të gjitha).
-  version: "20261120d",
+  version: "20261120e",
   // Numri i WhatsApp: me kodin e shtetit, pa "+", pa hapësira. P.sh. +355 69 123 4567 -> "355691234567"
   whatsapp: "355698277335",
   // Email-i ku vijnë mesazhet nga butoni "Dërgo me email" te formulari

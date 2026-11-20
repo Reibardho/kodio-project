@@ -336,5 +336,6 @@ window.KODIO_LANG.it = {
     "Founder & Software Engineer": "Fondatore e ingegnere del software",
     Email: "Email",
     "Email *": "Email *",
+    "Më shtyp": "Toccami",
   },
 };

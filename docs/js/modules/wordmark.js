@@ -463,8 +463,12 @@
     colors();
     draw(performance.now());
   });
-  var rt;
+  // rindërto vetëm kur ndryshon gjerësia (në iPhone shiriti i Safari-t ndryshon vetëm lartësinë gjatë scroll-it)
+  var rt,
+    lastW = innerWidth;
   addEventListener("resize", function () {
+    if (innerWidth === lastW) return;
+    lastW = innerWidth;
     clearTimeout(rt);
     rt = setTimeout(build, 150);
   });

@@ -71,6 +71,7 @@ kodio/
 | Ngjyrat (e kuqja `#d7202b`) | `css/base.css` → `:root` (tema e çelët) dhe `:root[data-theme="dark"]` (e errëta) |
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
+| Njoftimi "Më shtyp" sipër robotit | teksti: `index.html` (`.fhint`) + përkthimi te `js/data/lang/*.js`; pamja: `css/robot.css` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
 | "kodio" prej kubesh 3D në fund (yjet bashkohen kur arrin në fund; maus-i i shtyn; klikimi i shpërthen) | ngjyrat: `css/footer.css` (`.fmark.vox`, `--f3-*`); shpejtësia dhe lëvizja: `js/modules/wordmark.js` lart te "rregullime" (`ASSEMBLE` = sa ngadalë bashkohen, `SPRING`, `DAMP`) |
 | Pika e kuqe e maus-it (madhësia, ngjyra, unaza mbi butona) | `css/cursor.css` dhe `js/modules/cursor.js` |

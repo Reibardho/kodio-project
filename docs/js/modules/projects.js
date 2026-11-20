@@ -57,13 +57,31 @@
       lk.target = "_blank";
       lk.rel = "noopener";
     } else lk.removeAttribute("target");
+    info(s);
+    dots.querySelectorAll("i").forEach(function (x, j) {
+      x.classList.toggle("on", j === ci);
+    });
+  }
+
+  function info(s) {
     $("ct").textContent = L(s.ty);
     $("ctt").textContent = s.n;
     $("cdd").textContent = L(s.d);
     $("ctk").textContent = s.k.map(L).join(" · ");
-    dots.querySelectorAll("i").forEach(function (x, j) {
-      x.classList.toggle("on", j === ci);
+  }
+
+  // Teksti i projektit merr lartësinë e përshkrimit më të gjatë, që faqja të mos kërcejë
+  // lart-poshtë kur karuseli ndërron projektin vetë (sidomos në iPhone).
+  var box = $("ct").parentNode;
+  function fitInfo() {
+    box.style.minHeight = "";
+    var max = 0;
+    SITES.forEach(function (s) {
+      info(s);
+      max = Math.max(max, box.offsetHeight);
     });
+    info(SITES[ci]);
+    box.style.minHeight = max + "px";
   }
 
   function cplay() {
@@ -95,8 +113,18 @@
   cplay();
 
   fitDev();
+  fitInfo();
+  if (document.fonts) document.fonts.ready.then(fitInfo);
 
-  addEventListener("resize", fitDev);
+  var lastW = innerWidth;
+  addEventListener("resize", function () {
+    fitDev();
+    // lartësia e tekstit varet vetëm nga gjerësia (në iPhone "resize" vjen edhe gjatë scroll-it)
+    if (innerWidth !== lastW) {
+      lastW = innerWidth;
+      fitInfo();
+    }
+  });
 
   var vm = $("vm"),
     vc = $("vc");
@@ -203,5 +231,6 @@
     });
     fitDev();
     cgo(ci);
+    fitInfo();
   });
 })();
