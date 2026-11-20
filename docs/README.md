@@ -42,7 +42,7 @@ kodio/
 │   │       projects, pricing, estimator, contact, footer,
 │   │       tech, process (scroll), trail (gjurma e maus-it), cookies,
 │   │       marquee (shiriti lëvizës), magnetic (butonat), spotlight (drita mbi kartat),
-│   │       wordmark ("kodio" 3D në fund), cursor (pika e maus-it)
+│   │       wordmark ("kodio" prej kubesh 3D në fund), cursor (pika e maus-it)
 │   └── main.js
 └── assets/
     ├── images/projects/  ← ekranet e projekteve (Rei Mobile Store) në hero
@@ -72,7 +72,7 @@ kodio/
 | Temën e errët / të çelët (butoni hëna ↔ dielli) | logjika `js/core/theme.js`, pamja `css/theme-toggle.css`. Zgjedhja mbetet pas refresh-it; për vizitat e ardhshme mbahet vetëm me leje për cookies "Preferenca" |
 | Butonat e robotit | `SV2` në `js/modules/robot.js` |
 | Përkthimet (11 gjuhë) | `js/data/lang/<kodi>.js` — çelësi = teksti shqip, vlera = përkthimi. Gjuhë e re: një rresht te `js/data/languages.js` + kopjo `en.js` dhe përkthe |
-| "kodio" 3D në fund (thellësia, ngjyrat, sa kthehet nga maus-i) | `css/footer.css` (`.fmark.is3d`, `--f3-*`) dhe `js/modules/wordmark.js` (`N` = shtresat, `* 18` / `* 30` = këndet) |
+| "kodio" prej kubesh 3D në fund (bashkohen kur zbret, kthehen nga maus-i) | ngjyrat: `css/footer.css` (`.fmark.vox`, `--f3-*`); madhësia e kubeve (`fs / 22`), sa shpërndahen (`sx`, `sy`, `sz`) dhe këndet (`* 16` / `* 26`): `js/modules/wordmark.js` |
 | Pika e kuqe e maus-it (madhësia, ngjyra, unaza mbi butona) | `css/cursor.css` dhe `js/modules/cursor.js` |
 | Globi (madhësia në telefon) | `css/globe.css` |
 | Statistikat e vizitorëve (Cloudflare Web Analytics, pa cookies) | kodi `cloudflareinsights` para `</body>` te `index.html`, `privacy.html`, `404.html`; statistikat i sheh te dash.cloudflare.com → Web Analytics |
